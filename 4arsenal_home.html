@@ -48,6 +48,7 @@
             list-style: none;
         }
 
+        /* Navigation Styles */
         .navbar {
             position: fixed;
             top: 0;
@@ -142,10 +143,11 @@
             width: 100%;
         }
 
+        /* Hero Header Section */
         .hero {
             height: 100vh;
             background-color: var(--arsenal-dark-navy);
-            background-image: linear-gradient(rgba(2, 34, 68, 0.7), rgba(219, 0, 17, 0.4)), url('./image/main.jpg');
+            background-image: linear-gradient(rgba(2, 34, 68, 0.7), rgba(219, 0, 17, 0.4)), url('./image/main.jpg'); /* Fallback premium background */
             background-position: center;
             background-size: cover;
             display: flex;
@@ -227,15 +229,17 @@
             color: var(--arsenal-navy);
         }
 
+        /* Explore Features Section */
         .features { padding: 100px 5%; background-color: var(--arsenal-white); text-align: center; }
-        .section-title { font-family: var(--font-heading); font-size: 2.5rem; color: var(--arsenal-dark-navy); margin-bottom: 20px; text-transform: uppercase; }
+        .section-title { font-family: var(--font-heading); font-size: 2.8rem; color: var(--arsenal-dark-navy); margin-bottom: 15px; text-transform: uppercase; }
         .section-title span { color: var(--arsenal-red); }
+        .section-subtitle-text { font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto 50px auto; }
 
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; max-width: 1200px; margin-left: auto; margin-right: auto; }
-        .feature-card { background-color: var(--arsenal-light-gray); padding: 40px 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; opacity: 0; transform: translateY(30px); }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin-left: auto; margin-right: auto; }
+        .feature-card { background-color: var(--arsenal-light-gray); padding: 40px 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease, transform 0.6s ease; opacity: 0; transform: translateY(30px); }
         .feature-card.visible { opacity: 1; transform: translateY(0); }
         
-        /* New: Stadium Card Style */
+        /* Stadium Card Style */
         .stadium-card {
             background-image: linear-gradient(rgba(244, 244, 244, 0.85), rgba(244, 244, 244, 0.85)), url('./image/stadium.jpg');
             background-size: cover;
@@ -245,7 +249,7 @@
         }
         .stadium-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
 
-        /* New: History Card Style */
+        /* History Card Style */
         .history-card {
             background-image: linear-gradient(rgba(244, 244, 244, 0.85), rgba(244, 244, 244, 0.85)), url('./image/trophy.jpg');
             background-size: cover;
@@ -255,7 +259,7 @@
         }
         .history-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
 
-        /* New: Gunner Card Style */
+        /* Gunner Card Style */
         .gunner-card {
             background-image: linear-gradient(rgba(244, 244, 244, 0.85), rgba(244, 244, 244, 0.85)), url('./image/gunner.jpeg');
             background-size: cover;
@@ -266,14 +270,333 @@
         .gunner-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
 
         .feature-icon { font-size: 3rem; color: var(--arsenal-red); margin-bottom: 20px; }
+
+        /* [NEW SECTION] About 4ARSENAL & Introductory Section */
+        .about-section {
+            padding: 100px 5%;
+            background-color: var(--arsenal-light-gray);
+            position: relative;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .about-text.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .about-text h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--arsenal-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .about-text h2 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--arsenal-dark-navy);
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            word-break: keep-all;
+        }
+
+        .about-bullets {
+            margin-top: 30px;
+        }
+
+        .about-bullet-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .about-bullet-icon {
+            background-color: var(--arsenal-red);
+            color: white;
+            padding: 8px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+
+        .about-bullet-content h4 {
+            font-size: 1.2rem;
+            color: var(--arsenal-dark-navy);
+            margin-bottom: 5px;
+        }
+
+        .about-bullet-content p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+
+        .about-image-wrapper.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(2, 34, 68, 0.15);
+            border-bottom: 8px solid var(--arsenal-gold);
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background-color: var(--arsenal-dark-navy);
+            color: var(--arsenal-white);
+            padding: 20px 30px;
+            border-radius: 8px;
+            border-left: 5px solid var(--arsenal-red);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .about-badge-title {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--arsenal-gold);
+            line-height: 1.1;
+        }
+
+        .about-badge-desc {
+            font-size: 0.85rem;
+            color: #ccc;
+        }
+
+        /* [NEW SECTION] Non-Fan Starter Guide */
+        .guide-section {
+            padding: 100px 5%;
+            background-color: var(--arsenal-dark-navy);
+            color: var(--arsenal-white);
+            text-align: center;
+        }
+
+        .guide-title {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            color: var(--arsenal-white);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .guide-title span {
+            color: var(--arsenal-gold);
+        }
+
+        .guide-subtitle {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            word-break: keep-all;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .guide-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: left;
+            transition: all var(--transition-speed) ease, opacity 0.6s ease, transform 0.6s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .guide-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.07);
+            border-color: var(--arsenal-gold);
+        }
+
+        .guide-num {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--arsenal-red);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 15px;
+            display: inline-block;
+            border-bottom: 2px solid var(--arsenal-gold);
+            padding-bottom: 5px;
+        }
+
+        .guide-card h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--arsenal-white);
+            margin-bottom: 15px;
+        }
+
+        .guide-card p {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            line-height: 1.7;
+            word-break: keep-all;
+        }
+
+        /* [NEW SECTION] Footer section */
+        .footer {
+            background-color: #011326;
+            color: #94a3b8;
+            padding: 60px 5% 30px 5%;
+            font-size: 0.9rem;
+            border-top: 4px solid var(--arsenal-red);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info h4 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--arsenal-white);
+            margin-bottom: 15px;
+        }
+
+        .footer-info p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            max-width: 400px;
+        }
+
+        .footer-links h5, .footer-sns h5 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--arsenal-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            transition: color 0.2s;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--arsenal-white);
+        }
+
+        .footer-sns-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .sns-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.05);
+            color: var(--arsenal-white);
+            transition: all var(--transition-speed);
+            font-size: 1.2rem;
+        }
+
+        .sns-icon:hover {
+            background-color: var(--arsenal-red);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        /* Animations */
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .about-image-wrapper {
+                order: -1; /* Image on top in tablets and mobile */
+            }
+            .about-text, .about-image-wrapper {
+                transform: translateY(30px); /* Adjust mobile transition direction to up instead of left/right */
+            }
+        }
 
         @media (max-width: 768px) {
             .mobile-menu-btn { display: block; }
             .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--arsenal-dark-navy); flex-direction: column; align-items: center; padding: 20px 0; gap: 1.5rem; transform: translateY(-150%); transition: transform 0.4s ease; z-index: -1; }
             .nav-links.active { transform: translateY(0); }
             .hero-title { font-size: 4rem; }
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
         }
     </style>
 </head>
@@ -316,6 +639,7 @@
 
     <section class="features">
         <h2 class="section-title">Explore <span>The Gunners</span></h2>
+        <p class="section-subtitle-text">아스날 FC의 풍성한 역사와 역동적인 스쿼드, 그리고 신나는 퀴즈 체험 공간을 만나보세요.</p>
         <div class="feature-grid">
             <a href="club.html" class="feature-card fade-element stadium-card" style="transition-delay: 0s;">
                 <div class="feature-icon">🏟️</div>
@@ -335,13 +659,126 @@
         </div>
     </section>
 
+    <!-- [NEW] 사이트 소개 및 가치 소개 섹션 -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-text fade-element">
+                <h3>Welcome to 4ARSENAL</h3>
+                <h2>축구를 사랑하는<br>모두를 위한 아카이브</h2>
+                <p>
+                    <strong>4ARSENAL</strong>은 단순한 팬 페이지를 넘어, 런던의 유서 깊은 축구 클럽 '아스날 FC'의 발자취와 감동을 모든 축구 팬들과 나누고자 만든 종합 플랫폼입니다.
+                </p>
+                <p>
+                    거너스(아스날 팬들의 애칭)에게는 구단에 대한 깊은 유대감을 쌓고 즐길 수 있는 안식처가, 축구를 가볍게 접하는 방문자들에게는 유럽 축구 명문 구단의 스토리를 알기 쉽게 이해하는 친절한 안내서가 되어 드립니다.
+                </p>
+                
+                <div class="about-bullets">
+                    <div class="about-bullet-item">
+                        <div class="about-bullet-icon">💡</div>
+                        <div class="about-bullet-content">
+                            <h4>비팬(Non-Fans)도 쉽게 읽는 프리미엄 가이드</h4>
+                            <p>복잡하고 낯설 수 있는 축구 구단의 전술과 세세한 스쿼드 정보, 구장의 위치를 직관적이고 쉬운 비주얼 카드로 보여줍니다.</p>
+                        </div>
+                    </div>
+                    <div class="about-bullet-item">
+                        <div class="about-bullet-icon">🎮</div>
+                        <div class="about-bullet-content">
+                            <h4>참여하고 보상받는 재미, Gunner Zone</h4>
+                            <p>아스날과 축구에 관한 흥미진진한 퀴즈를 맞히고, 자신만의 등급 뱃지를 모으며 자연스럽게 축구 지식을 채워갈 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-image-wrapper fade-element">
+                <!-- Fallback premium football atmosphere image -->
+                <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=800" alt="Emirates Stadium Vibe" class="about-img">
+                <div class="about-badge">
+                    <p class="about-badge-title">COYG</p>
+                    <p class="about-badge-desc">Come On You Gunners</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [NEW] 아스날 입문자를 위한 필수 교양 카드 섹션 -->
+    <section class="guide-section">
+        <h2 class="guide-title">Arsenal <span>Starter Guide</span></h2>
+        <p class="guide-subtitle">
+            "아스날 팬이 아니어도 괜찮습니다!" 프리미어리그 역사에서 절대 빠질 수 없는 아스날의 흥미로운 3가지 사실을 소개합니다. 이것만 알면 어디 가서 아는 척하기 딱 좋아요!
+        </p>
+        
+        <div class="guide-grid">
+            <div class="guide-card fade-element">
+                <span class="guide-num">01</span>
+                <h3>유일무이의 대기록 '무패 우승'</h3>
+                <p>
+                    프리미어리그 130년이 넘는 역사 속에서 <strong>단 한 번도 패하지 않고 리그를 제패(26승 12무)한 팀</strong>은 2003-04 시즌의 아스날이 유일합니다. 이때 아스날은 특별히 제작된 황금빛 EPL 트로피를 수여받았습니다.
+                </p>
+            </div>
+            <div class="guide-card fade-element">
+                <span class="guide-num">02</span>
+                <h3>왜 이름이 'Gunners' 일까?</h3>
+                <p>
+                    아스날의 구단 엠블럼에는 당당하게 <strong>'대포'</strong>가 그려져 있습니다. 1886년 런던 울위치 지역의 무기 공장 노동자들이 모여서 만든 클럽이기 때문입니다. 그래서 구단의 애칭 역시 '포병대'라는 뜻의 <strong>거너스(Gunners)</strong>입니다.
+                </p>
+            </div>
+            <div class="guide-card fade-element">
+                <span class="guide-num">03</span>
+                <h3>세상에서 가장 뜨거운 대결 '북런던 더비'</h3>
+                <p>
+                    아스날의 철천지원수이자 최고의 라이벌은 바로 이영표 선수와 손흥민 선수가 속했던 <strong>토트넘 홋스퍼</strong>입니다. 런던의 북부 지역을 공유하는 두 구단의 라이벌전은 매 경기 치열한 공방전과 함께 팬들에게 짜릿함을 선사합니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- [NEW] 신뢰도를 더해주는 완성도 높은 푸터 -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h4>4ARSENAL</h4>
+                <p>
+                    이 페이지는 아스날 FC를 사랑하는 팬 및 축구에 관심이 있는 대중들을 위해 만들어진 비영리 목적의 팬 베이스 플랫폼 아카이브입니다.
+                </p>
+                <div class="footer-sns-icons">
+                    <a href="#" class="sns-icon" aria-label="Facebook">🔵</a>
+                    <a href="#" class="sns-icon" aria-label="Instagram">📸</a>
+                    <a href="#" class="sns-icon" aria-label="Youtube">📺</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h5>QUICK LINKS</h5>
+                <ul>
+                    <li><a href="4arsenal_home.html">Home</a></li>
+                    <li><a href="club.html">Club & Squad</a></li>
+                    <li><a href="history.html">History & Legends</a></li>
+                    <li><a href="gunner.html">Gunner Zone</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h5>RESOURCES</h5>
+                <ul>
+                    <li><a href="https://www.arsenal.com/" target="_blank">Arsenal Official</a></li>
+                    <li><a href="https://www.premierleague.com/" target="_blank">Premier League</a></li>
+                    <li><a href="match.html">Match Schedules</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 4ARSENAL. For Gunners, Built for All Football Fans. North London Forever.</p>
+        </div>
+    </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Navbar scroll event to change color slightly on scroll down
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
                 navbar.classList.toggle('scrolled', window.scrollY > 50);
             });
 
+            // Mobile menu button activation
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const navLinks = document.getElementById('navLinks');
             mobileMenuBtn.addEventListener('click', () => {
@@ -349,11 +786,14 @@
                 mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? '✕' : '☰';
             });
 
+            // Setup scroll animations using IntersectionObserver for new and existing sections
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
                 });
-            }, { threshold: 0.2 });
+            }, { threshold: 0.15 }); // 15% visibility triggers activation
 
             document.querySelectorAll('.fade-element').forEach(el => observer.observe(el));
         });
