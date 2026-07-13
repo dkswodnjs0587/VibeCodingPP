@@ -10,8 +10,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
+    <!-- [NEW] FOUC(깜빡임) 방지 테마 감지 엔진 -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+    </script>
+
     <!-- Tailwind CSS (For layout utilities & responsive design) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- [NEW] Tailwind 다크모드 클래스 활성화 설정 -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
 
     <style>
         :root {
@@ -26,6 +44,71 @@
             --font-body: 'Roboto', sans-serif;
             
             --transition-speed: 0.3s;
+        }
+
+        /* [NEW] 다크 모드 스타일 오버라이드 정의 */
+        html.dark body {
+            background-color: #0b0f19;
+            color: #cbd5e1;
+        }
+
+        html.dark .info-card {
+            background-color: #131c2e;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        html.dark .info-list li {
+            border-bottom-color: #1e293b;
+        }
+
+        html.dark .info-label {
+            color: #f1f5f9;
+        }
+
+        html.dark .info-value {
+            color: var(--arsenal-gold);
+        }
+
+        html.dark .flip-card-back {
+            background-color: #131c2e;
+            color: #f1f5f9;
+            border-color: var(--arsenal-gold);
+        }
+
+        html.dark .stats-list li {
+            border-bottom-color: #1e293b;
+        }
+
+        html.dark .stats-label {
+            color: #94a3b8;
+        }
+
+        html.dark .stats-value {
+            color: var(--arsenal-gold);
+        }
+
+        html.dark .flip-card-back p {
+            color: #cbd5e1;
+        }
+
+        /* [NEW] 테마 전환 버튼 스타일 */
+        .theme-toggle-btn {
+            background: none;
+            border: none;
+            color: var(--arsenal-white);
+            font-size: 1.25rem;
+            cursor: pointer;
+            padding: 5px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform var(--transition-speed), color var(--transition-speed);
+            outline: none;
+        }
+
+        .theme-toggle-btn:hover {
+            color: var(--arsenal-gold);
+            transform: scale(1.15) rotate(15deg);
         }
 
         * {
@@ -615,6 +698,7 @@
         </div>
         <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         <ul class="nav-links" id="navLinks">
+            <li><button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle Theme">☾</button></li>
             <li><a href="4arsenal_home.html">Home</a></li>
             <li><a href="club.html" class="active">Club</a></li>
             <li><a href="history.html">History</a></li>
@@ -1146,7 +1230,23 @@
     <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
+            // [NEW] 테마 모드 제어 엔진 로직
+            const themeToggleBtn = document.getElementById('themeToggleBtn');
+            const updateThemeUI = () => {
+                const isDark = document.documentElement.classList.contains('dark');
+                themeToggleBtn.innerHTML = isDark ? '☼' : '☾';
+            };
+
+            themeToggleBtn.addEventListener('click', () => {
+                const isDark = document.documentElement.classList.toggle('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                updateThemeUI();
+            });
+
+            // 초기 아이콘 상태 정렬
+            updateThemeUI();
+
+
             // 1. Chant Button Interaction (Play/Pause Toggle)
             const chantBtn = document.getElementById('chantBtn');
             const btnIcon = document.getElementById('btnIcon');
