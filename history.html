@@ -76,6 +76,21 @@
             border-color: var(--arsenal-gold);
         }
 
+        /* [NEW] 다크 모드 시 카드 뒷면 선수명 및 활동 기간 시인성 극대화 */
+        html.dark .back-name {
+            color: #ffffff !important;
+        }
+
+        html.dark .back-period {
+            color: #94a3b8 !important;
+        }
+
+        /* [NEW] 다크 모드 시 카드 뒷면 어록/평가 텍스트 가독성 극대화 */
+        html.dark .player-quote {
+            color: #e2e8f0 !important;
+            border-top-color: rgba(255, 255, 255, 0.15) !important;
+        }
+
         html.dark .zone-card {
             background-color: #131c2e;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -517,13 +532,15 @@
             margin-top: 2px;
         }
 
+        /* [NEW] 모바일 및 웹 전반에서 어록이 더 뚜렷하게 보이도록 서체 두께와 자간 보완 */
         .player-quote {
             font-style: italic;
-            font-size: 0.8rem;
-            color: #555;
-            line-height: 1.4;
+            font-size: 0.85rem;
+            font-weight: 500; /* 기존 얇은 서체에서 가독성 높은 굵기(500)로 수정 */
+            color: #475569; /* 라이트 모드에서도 조금 더 선명한 슬레이트 블루 그레이 적용 */
+            line-height: 1.5;
             border-top: 1px dashed #ddd;
-            padding-top: 10px;
+            padding-top: 12px;
             text-align: center;
             width: 100%;
         }
@@ -843,6 +860,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 15px;
+            border: none;
         }
 
         .footer-links ul li {
