@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club | 4ARSENAL</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (For layout utilities & responsive design) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --arsenal-red: #DB0011;
+            --arsenal-navy: #063672;
+            --arsenal-dark-navy: #022244;
+            --arsenal-gold: #9C824A;
+            --arsenal-white: #FFFFFF;
+            --arsenal-light-gray: #F4F4F4;
+            
+            --font-heading: 'Oswald', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+            
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--arsenal-light-gray);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+        }
+
+        .mobile-menu-btn {
+            display: none !important;
+        }
+
+        /* ==========================================================================
+           Navigation Bar Styles
+           ========================================================================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(2, 34, 68, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 
+                0 2px 10px rgba(0, 0, 0, 0.3),
+                0 1px 0 rgba(255,255,255,0.1);
+            transition: all var(--transition-speed) ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.8rem 5%;
+            background-color: #022244;
+        }
+
+        .nav-logo-link {
+            font-family: 'Oswald', sans-serif;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .nav-logo-main {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: 1px;
+        }
+
+        .nav-logo-sub {
+            font-size: 0.9rem;
+            color: #9C824A;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links li a {
+            color: #FFFFFF;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #9C824A;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            color: #9C824A;
+        }
+
+        .nav-links li a:hover::after,
+        .nav-links li a.active::after {
+            width: 100%;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(2, 34, 68, 0.85), rgba(2, 34, 68, 0.95)), url('./image/main.jpg') center/cover;
+            padding: 150px 0 60px;
+            text-align: center;
+            color: white;
+            border-bottom: 4px solid #9C824A;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            color: var(--arsenal-white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+
+            animation: fadeInDown 0.8s ease;
+        }
+        
+        .page-title span {
+            color: var(--arsenal-red);
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f1f1f1;
+
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 2rem;
+            height: 100%;
+            border-top: 5px solid var(--arsenal-red);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .info-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: var(--arsenal-dark-navy);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-value {
+            color: var(--arsenal-red);
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            text-align: right;
+        }
+
+        /* Stadium Map Wrapper */
+        .map-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Squad Section */
+        .squad-section {
+            background-color: var(--arsenal-dark-navy);
+            color: white;
+            padding: 80px 5%;
+        }
+
+        /* ==========================================================================
+           3D Flip Card Container & Stacking Fixes
+           ========================================================================== */
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 400px;
+            perspective: 1500px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            transition: z-index 0s;
+        }
+
+        .flip-card:hover {
+            z-index: 10;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            transform-origin: center center;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            overflow: hidden;
+            top: 0;
+            left: 0;
+        }
+
+        /* Front Styling */
+        .flip-card-front {
+            background: linear-gradient(145deg, #e60012, #b3000e);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+        }
+
+        /* Front Styling - Manager Dark Theme Override */
+        .manager-card .flip-card-front {
+            background: linear-gradient(145deg, #2d3748, #1a202c); /* Premium dark slate/black */
+            border: 2px solid var(--arsenal-gold);
+        }
+
+        /* Improved visibility for shirt numbers (Reduced size to avoid image cutoff) */
+        .player-number-bg {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-family: var(--font-heading);
+            font-size: 5.5rem; /* Reduced from 7.5rem to prevent cutoff */
+            color: rgba(255, 255, 255, 0.35); /* Increased opacity for better contrast */
+            line-height: 1;
+            font-weight: 700;
+            pointer-events: none;
+        }
+
+        /* Added margins and rounding so player heads do not touch the absolute top boundary */
+        .player-image-placeholder {
+            flex-grow: 1;
+            background-size: cover;
+            background-position: top center;
+            position: relative;
+            z-index: 2;
+            margin: 20px 15px 0 15px; /* Added 20px top margin for head clearance */
+            border-radius: 12px;
+        }
+
+        .player-info-front {
+            background: linear-gradient(to top, var(--arsenal-dark-navy) 0%, transparent 100%);
+            padding: 30px 20px 20px;
+            position: relative;
+            z-index: 3;
+            text-align: left;
+        }
+
+        .player-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--arsenal-white);
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .player-position {
+            color: var(--arsenal-gold);
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .manager-card .player-position {
+            color: #cbd5e1; /* Silver/white for manager position subtitle */
+        }
+
+        /* Back Styling */
+        .flip-card-back {
+            background: var(--arsenal-white);
+            color: var(--arsenal-dark-navy);
+            transform: rotateY(180deg);
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 4px solid var(--arsenal-red);
+        }
+
+        .manager-card .flip-card-back {
+            border: 4px solid var(--arsenal-gold); /* Gold border on back for Manager */
+        }
+
+        .stats-list {
+            width: 100%;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .stats-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .stats-label { font-weight: bold; color: #666; }
+        .stats-value { font-family: var(--font-heading); color: var(--arsenal-red); font-size: 1.1rem;}
+
+        .flag-icon {
+            width: 22px;
+            height: 16px;
+            object-fit: cover;
+            border-radius: 2px;
+            border: 1px solid #ddd;
+        }
+
+        .stats-value.nationality {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        /* Chant Section */
+        .chant-section {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, var(--arsenal-red) 0%, #a8000d 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .chant-bg-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-heading);
+            font-size: 10vw;
+            white-space: nowrap;
+            color: rgba(0,0,0,0.05);
+            font-weight: 700;
+            pointer-events: none;
+        }
+
+        .lyrics-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-style: italic;
+            font-size: 1.2rem;
+            line-height: 2;
+        }
+
+        .play-btn {
+            background-color: var(--arsenal-gold);
+            color: var(--arsenal-dark-navy);
+            border: none;
+            padding: 15px 40px;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .play-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+        }
+
+        .play-btn.playing {
+            background-color: var(--arsenal-dark-navy);
+            color: var(--arsenal-white);
+            border: 2px solid var(--arsenal-gold);
+        }
+
+        .sound-wave {
+            display: none;
+            gap: 3px;
+            height: 20px;
+            align-items: center;
+        }
+        
+        .play-btn.playing .sound-wave {
+            display: flex;
+        }
+
+        .bar {
+            width: 4px;
+            background-color: var(--arsenal-gold);
+            border-radius: 2px;
+            animation: bounce 1s infinite alternate;
+        }
+
+        .bar:nth-child(2) { animation-delay: 0.2s; }
+        .bar:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes bounce {
+            0% { height: 5px; }
+            100% { height: 20px; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo">
+            <a href="4arsenal_home.html" class="nav-logo-link">
+                <span class="nav-logo-main">4ARSENAL</span>
+                <span class="nav-logo-sub">For Gunners</span>
+            </a>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="4arsenal_home.html">Home</a></li>
+            <li><a href="club.html" class="active">Club</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="match.html">Match</a></li>
+            <li><a href="gunner.html">Gunner Zone</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container mx-auto px-4">
+            <h1 class="page-title">The <span>Club</span></h1>
+            <p class="page-subtitle text-xl font-semibold tracking-wider text-gray-100">우리의 정체성, 우리의 집, 우리의 선수들</p>
+        </div>
+    </header>
+
+    <!-- Overview & Stadium Section -->
+    <section class="py-20 px-5 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            
+            <!-- Left: Arsenal Overview with Logo next to Header & Mascot image -->
+            <div class="info-card">
+                <div>
+                    <!-- Arsenal Logo next to Header -->
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="Arsenal Crest" class="w-10 h-10 object-contain">
+                        <h2 class="text-3xl text-[var(--arsenal-dark-navy)] uppercase font-bold" style="font-family: var(--font-heading); line-height: 1;">Arsenal Overview</h2>
+                    </div>
+                    <ul class="info-list">
+                        <li>
+                            <span class="info-label">📅 창단년도</span>
+                            <span class="info-value">1886</span>
+                        </li>
+                        <li>
+                            <span class="info-label">🛡️ 구단명</span>
+                            <span class="info-value">Arsenal Football Club</span>
+                        </li>
+                        <li>
+                            <span class="info-label">✨ 별명</span>
+                            <span class="info-value">The Gunners</span>
+                        </li>
+                        <li>
+                            <span class="info-label">🏟️ 홈구장</span>
+                            <span class="info-value">Emirates Stadium</span>
+                        </li>
+                        <li>
+                            <span class="info-label">👔 감독</span>
+                            <span class="info-value">Mikel Arteta</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Mascot Box with gunnersaurus.jpg -->
+                <div class="mt-8 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center gap-6 bg-[#022244]/5 p-5 rounded-xl border border-[var(--arsenal-gold)]/20">
+                    <!-- Mascot: Gunnersaurus Rex Photo replacement -->
+                    <div class="w-24 h-24 flex-shrink-0 bg-white rounded-xl shadow-md overflow-hidden flex items-center justify-center border-2 border-[var(--arsenal-gold)]">
+                        <img src="./image/gunnersaurus.jpg" alt="Gunnersaurus Rex" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/150x150/022244/ffffff?text=Gunner'">
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <div class="flex items-center justify-center sm:justify-start gap-2 mb-2">
+                            <span class="text-2xl">🦖</span>
+                            <h4 class="font-bold text-[var(--arsenal-dark-navy)] text-lg" style="font-family: var(--font-heading);">Gunnersaurus Rex</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed font-normal">
+                            아스날 FC의 역사적 마스코트! 1993년 구단 공식 캐릭터로 데뷔한 이래 하이버리부터 에미레이트 스타디움까지 항상 피치 위에서 거너스를 응원하며 명물 마스코트로 많은 사랑을 받고 있습니다
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Emirates Stadium Info -->
+            <div class="flex flex-col gap-6">
+                <div class="rounded-xl overflow-hidden shadow-lg border-b-4 border-[var(--arsenal-gold)] relative">
+                    <img src="./image/stadium.jpg" alt="Emirates Stadium" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1614607242094-b1b2cf732b13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent p-4">
+                        <h3 class="text-white text-2xl font-bold" style="font-family: var(--font-heading);">Emirates Stadium</h3>
+                        <p class="text-gray-200 text-sm">Capacity: 60,704 | Opened: 2006</p>
+                    </div>
+                </div>
+                <!-- Google Maps Embed -->
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2480.9850616149454!2d-0.11059428399580132!3d51.55488847964344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b7645295e3b%3A0x3600713c8382cf90!2sEmirates%20Stadium!5e0!3m2!1sen!2skr!4v1698765432109!5m2!1sen!2skr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Current Squad Section (12 players total, 4x3 Grid) -->
+    <section class="squad-section">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl uppercase font-bold text-[var(--arsenal-gold)] mb-2" style="font-family: var(--font-heading);">Current Squad</h2>
+                <p class="text-xl font-semibold tracking-wider text-gray-300">거너스의 심장이자 아스날의 수장과 자랑스러운 BEST 11을 소개합니다</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Card 1: Mikel Arteta (Manager) - Dark Slate Theme, Removed MGR BG -->
+                <div class="flip-card manager-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <!-- Removed player-number-bg for Manager -->
+                            <div class="player-image-placeholder" style="background-image: url('./image/player/arteta.webp');" onerror="this.style.backgroundImage='url(\'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=400&q=80\')';"></div>
+                            <div class="player-info-front">
+                                <h3 class="player-name">Mikel<br>ARTETA</h3>
+                                <p class="player-position">Manager</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="logo" class="w-16 mb-4 opacity-50">
+                            <h3 class="text-2xl font-bold uppercase mb-4" style="font-family: var(--font-heading);">Mikel Arteta</h3>
+                            <ul class="stats-list">
+                                <li>
+                                    <span class="stats-label">Nationality</span>
+                                    <span class="stats-value nationality">
+                                        <img src="https://flagcdn.com/w40/es.png" class="flag-icon">
+                                        Spain
+                                    </span>
+                                </li>
+                                <li><span class="stats-label">Born</span> <span class="stats-value">1982.03.26</span></li>
+                                <li><span class="stats-label">Joined</span> <span class="stats-value">2019</span></li>
+                            </ul>
+                            <p class="mt-4 text-sm text-gray-600 text-center">"현대 전술 체계를 완전히 이식하고 클럽의 영광을 되찾은 거너스의 수장"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Martin Odegaard -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span class="player-number-bg">8</span>
+                            <div class="player-image-placeholder" style="background-image: url('./image/player/odegaard.webp');" onerror="this.style.backgroundImage='url(\'https://images.unsplash.com/photo-1551280857-2b9bbe52fae1?auto=format&fit=crop&w=400&q=80\')';"></div>
+                            <div class="player-info-front">
+                                <h3 class="player-name">Martin<br>ØDEGAARD</h3>
+                                <p class="player-position">Midfielder (C)</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="logo" class="w-16 mb-4 opacity-50">
+                            <h3 class="text-2xl font-bold uppercase mb-4" style="font-family: var(--font-heading);">Martin Ødegaard</h3>
+                            <ul class="stats-list">
+                                <li>
+                                    <span class="stats-label">Nationality</span>
+                                    <span class="stats-value nationality">
+                                        <img src="https://flagcdn.com/w40/no.png" class="flag-icon">
+                                        Norway
+                                    </span>
+                                </li>
+                                <li><span class="stats-label">Born</span> <span class="stats-value">1998.12.17</span></li>
+                                <li><span class="stats-label">Joined</span> <span class="stats-value">2021</span></li>
+                            </ul>
+                            <p class="mt-4 text-sm text-gray-600 text-center">"아스날의 굳건한 주장이자 천재적인 플레이메이킹 능력을 발휘하는 중원의 축"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Bukayo Saka -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span class="player-number-bg">7</span>
+                            <div class="player-image-placeholder" style="background-image: url('./image/player/saka.webp');" onerror="this.style.backgroundImage='url(\'https://images.unsplash.com/photo-1518605368461-1e1252220a22?auto=format&fit=crop&w=400&q=80\')';"></div>
+                            <div class="player-info-front">
+                                <h3 class="player-name">Bukayo<br>SAKA</h3>
+                                <p class="player-position">Right Winger</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="logo" class="w-16 mb-4 opacity-50">
+                            <h3 class="text-2xl font-bold uppercase mb-4" style="font-family: var(--font-heading);">Bukayo Saka</h3>
+                            <ul class="stats-list">
+                                <li>
+                                    <span class="stats-label">Nationality</span>
+                                    <span class="stats-value nationality">
+                                        <img src="https://flagcdn.com/w40/gb-eng.png" class="flag-icon">
+                                        England
+                                    </span>
+                                </li>
+                                <li><span class="stats-label">Born</span> <span class="stats-value">2001.09.05</span></li>
+                                <li><span class="stats-label">Joined</span> <span class="stats-value">2018 (Academy)</span></li>
+                            </ul>
+                            <p class="mt-4 text-sm text-gray-600 text-center">"아스날 유스 출신의 자존심, 오른쪽 라인을 완벽히 파괴하는 거너스 에이스"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Declan Rice -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span class="player-number-bg">41</span>
+                            <div class="player-image-placeholder" style="background-image: url('./image/player/rice.webp');" onerror="this.style.backgroundImage='url(\'https://images.unsplash.com/photo-1508344928928-7137b29de216?auto=format&fit=crop&w=400&q=80\')';"></div>
+                            <div class="player-info-front">
+                                <h3 class="player-name">Declan<br>RICE</h3>
+                                <p class="player-position">Midfielder</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="logo" class="w-16 mb-4 opacity-50">
+                            <h3 class="text-2xl font-bold uppercase mb-4" style="font-family: var(--font-heading);">Declan Rice</h3>
+                            <ul class="stats-list">
+                                <li>
+                                    <span class="stats-label">Nationality</span>
+                                    <span class="stats-value nationality">
+                                        <img src="https://flagcdn.com/w40/gb-eng.png" class="flag-icon">
+                                        England
+                                    </span>
+                                </li>
+                                <li><span class="stats-label">Born</span> <span class="stats-value">1999.01.14</span></li>
+                                <li><span class="stats-label">Joined</span> <span class="stats-value">2023</span></li>
+                            </ul>
+                            <p class="mt-4 text-sm text-gray-600 text-center">"중원을 지키는 철벽 가드이자 지치지 않는 활동량으로 피치를 점령하는 엔진"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Gabriel Magalhaes -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span class="player-number-bg">6</span>
+                            <div class="player-image-placeholder" style="background-image: url('./image/player/Gabriel.webp');" onerror="this.style.backgroundImage='url(\'https://images.unsplash.com/photo-1431324155629-1a6d0a11f582?auto=format&fit=crop&w=400&q=80\')';"></div>
+                            <div class="player-info-front">
+                                <h3 class="player-name">GABRIEL<br>Magalhaes</h3>
+                                <p class="player-position">Defender</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="logo" class="w-16 mb-4 opacity-50">
+                            <h3 class="text-2xl font-bold uppercase mb-4" style="font-family: var(--font-heading);">Gabriel Magalhães</h3>
+                            <ul class="stats-list">
+                                <li>
+                                    <span class="stats-label">Nationality</span>
+                                    <span class="stats-value nationality">
+                                        <img src="https://flagcdn.com/w40/br.png" class="flag-icon">
+                                        Brazil
+                                    </span>
+                                </li>
+                                <li><span class="stats-label">Born</span> <span class="stats-value">1997.12.19</span></li>
+                                <li><span class="stats-label">Joined</span> <span class="stats-value">2020</span></li>
+                            </ul>
+                            <p class="mt-4 text-sm text-gray-600 text-center">"강력한 공중볼 점유와 투지 넘치는 수비로 매 시즌 득점까지 올리는 무서운 센터백"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: William Saliba -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span class="player-number-bg">2</span>
+                            <div class="player-image-placeholder" style="background-image: url('./image/player/saliba.webp');" onerror="this.style.backgroundImage='url(\'https://images.unsplash.com/photo-1544698310-74ea9d1c8258?auto=format&fit=crop&w=400&q=80\')';"></div>
+                            <div class="player-info-front">
+                                <h3 class="player-name">William<br>SALIBA</h3>
+                                <p class="player-position">Defender</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="logo" class="w-16 mb-4 opacity-50">
+                            <h3 class="text-2xl font-bold uppercase mb-4" style="font-family: var(--font-heading);">William Saliba</h3>
+                            <ul class="stats-list">
+                                <li>
+                                    <span class="stats-label">Nationality</span>
+                                    <span class="stats-value nationality">
+                                        <img src="https://flagcdn.com/w40/fr.png" class="flag-icon">
+                                        France
+                                    </span>
+                                </li>
+                                <li><span class="stats-label">Born</span> <span class="stats-value">2001.03.24</span></li>
+                                <li><span class="stats-label">Joined</span> <span class="stats-value">2019</span></li>
+                            </ul>
+                            <p class="mt-4 text-sm text-gray-600 text-center">"차원이 다른 수비 지능과 우아한 볼 배급 능력을 보여주는 명실상부 월드클래스"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7: Jurrien Timber -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span class="player-number-bg">12</span>
+                            <div class="player-image-placeholder" style="background-image: url('./image/player/timber.webp');" onerror="this.style.backgroundImage='url(\'https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=400&q=80\')';"></div>
+                            <div class="player-info-front">
+                                <h3 class="player-name">Jurrien<br>TIMBER</h3>
+                                <p class="player-position">Defender</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="logo" class="w-16 mb-4 opacity-50">
+                            <h3 class="text-2xl font-bold uppercase mb-4" style="font-family: var(--font-heading);">Jurrien Timber</h3>
+                            <ul class="stats-list">
+                                <li>
+                                    <span class="stats-label">Nationality</span>
+                                    <span class="stats-value nationality">
+                                        <img src="https://flagcdn.com/w40/nl.png" class="flag-icon">
+                                        Netherlands
+                                    </span>
+                                </li>
+                                <li><span class="stats-label">Born</span> <span class="stats-value">2001.06.17</span></li>
+                                <li><span class="stats-label">Joined</span> <span class="stats-value">2023</span></li>
+                            </ul>
+                            <p class="mt-4 text-sm text-gray-600 text-center">"안쪽으로 좁혀 들어오는 스마트한 인버티드 풀백 플레이의 일인자"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8: David Raya (Updated to #1) -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span class="player-number-bg">1</span>
+                            <div class="player-image-placeholder" style="background-image: url('./image/player/raya.webp');" onerror="this.style.backgroundImage='url(\'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=400&q=80\')';"></div>
+                            <div class="player-info-front">
+                                <h3 class="player-name">David<br>RAYA</h3>
+                                <p class="player-position">Goalkeeper</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="logo" class="w-16 mb-4 opacity-50">
+                            <h3 class="text-2xl font-bold uppercase mb-4" style="font-family: var(--font-heading);">David Raya</h3>
+                            <ul class="stats-list">
+                                <li>
+                                    <span class="stats-label">Nationality</span>
+                                    <span class="stats-value nationality">
+                                        <img src="https://flagcdn.com/w40/es.png" class="flag-icon">
+                                        Spain
+                                    </span>
+                                </li>
+                                <li><span class="stats-label">Born</span> <span class="stats-value">1995.09.15</span></li>
+                                <li><span class="stats-label">Joined</span> <span class="stats-value">2023</span></li>
+                            </ul>
+                            <p class="mt-4 text-sm text-gray-600 text-center">"압도적인 반사 신경과 패스마스터급 빌드업 전개를 보유한 주전 키퍼"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 9: Martin Zubimendi (Updated to #36) -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span class="player-number-bg">36</span>
+                            <div class="player-image-placeholder" style="background-image: url('./image/player/zubimendi.webp');" onerror="this.style.backgroundImage='url(\'https://images.unsplash.com/photo-1551280857-2b9bbe52fae1?auto=format&fit=crop&w=400&q=80\')';"></div>
+                            <div class="player-info-front">
+                                <h3 class="player-name">Martin<br>ZUBIMENDI</h3>
+                                <p class="player-position">Midfielder</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="logo" class="w-16 mb-4 opacity-50">
+                            <h3 class="text-2xl font-bold uppercase mb-4" style="font-family: var(--font-heading);">Martin Zubimendi</h3>
+                            <ul class="stats-list">
+                                <li>
+                                    <span class="stats-label">Nationality</span>
+                                    <span class="stats-value nationality">
+                                        <img src="https://flagcdn.com/w40/es.png" class="flag-icon">
+                                        Spain
+                                    </span>
+                                </li>
+                                <li><span class="stats-label">Born</span> <span class="stats-value">1999.02.02</span></li>
+                                <li><span class="stats-label">Joined</span> <span class="stats-value">2026</span></li>
+                            </ul>
+                            <p class="mt-4 text-sm text-gray-600 text-center">"뛰어난 축구 지능과 완벽한 템포 조율로 포백을 단단하게 보호하는 자원"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 10: Gabriel Martinelli -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span class="player-number-bg">11</span>
+                            <div class="player-image-placeholder" style="background-image: url('./image/player/martinelli.webp');" onerror="this.style.backgroundImage='url(\'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=400&q=80\')';"></div>
+                            <div class="player-info-front">
+                                <h3 class="player-name">Gabriel<br>MARTINELLI</h3>
+                                <p class="player-position">Left Winger</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="logo" class="w-16 mb-4 opacity-50">
+                            <h3 class="text-2xl font-bold uppercase mb-4" style="font-family: var(--font-heading);">Gabriel Martinelli</h3>
+                            <ul class="stats-list">
+                                <li>
+                                    <span class="stats-label">Nationality</span>
+                                    <span class="stats-value nationality">
+                                        <img src="https://flagcdn.com/w40/br.png" class="flag-icon">
+                                        Brazil
+                                    </span>
+                                </li>
+                                <li><span class="stats-label">Born</span> <span class="stats-value">2001.06.18</span></li>
+                                <li><span class="stats-label">Joined</span> <span class="stats-value">2019</span></li>
+                            </ul>
+                            <p class="mt-4 text-sm text-gray-600 text-center">"압도적인 스프린트 돌파와 과감한 문전 파고들기로 측면을 지배하는 윙어"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 11: Riccardo Calafiori -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span class="player-number-bg">33</span>
+                            <div class="player-image-placeholder" style="background-image: url('./image/player/calafiori.webp');" onerror="this.style.backgroundImage='url(\'https://images.unsplash.com/photo-1544698310-74ea9d1c8258?auto=format&fit=crop&w=400&q=80\')';"></div>
+                            <div class="player-info-front">
+                                <h3 class="player-name">Riccardo<br>CALAFIORI</h3>
+                                <p class="player-position">Defender</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="logo" class="w-16 mb-4 opacity-50">
+                            <h3 class="text-2xl font-bold uppercase mb-4" style="font-family: var(--font-heading);">Riccardo Calafiori</h3>
+                            <ul class="stats-list">
+                                <li>
+                                    <span class="stats-label">Nationality</span>
+                                    <span class="stats-value nationality">
+                                        <img src="https://flagcdn.com/w40/it.png" class="flag-icon">
+                                        Italy
+                                    </span>
+                                </li>
+                                <li><span class="stats-label">Born</span> <span class="stats-value">2002.05.19</span></li>
+                                <li><span class="stats-label">Joined</span> <span class="stats-value">2024</span></li>
+                            </ul>
+                            <p class="mt-4 text-sm text-gray-600 text-center">"세련된 전진 본능과 정교한 오버랩 능력을 갖춘 다재다능한 이탈리안 수비수"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 12: Viktor Gyokeres -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span class="player-number-bg">9</span>
+                            <div class="player-image-placeholder" style="background-image: url('./image/player/gyokeres.webp');" onerror="this.style.backgroundImage='url(\'https://images.unsplash.com/photo-1518063319789-7217e6706b04?auto=format&fit=crop&w=400&q=80\')';"></div>
+                            <div class="player-info-front">
+                                <h3 class="player-name">Viktor<br>GYOKERES</h3>
+                                <p class="player-position">Striker</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="logo" class="w-16 mb-4 opacity-50">
+                            <h3 class="text-2xl font-bold uppercase mb-4" style="font-family: var(--font-heading);">Viktor Gyökeres</h3>
+                            <ul class="stats-list">
+                                <li>
+                                    <span class="stats-label">Nationality</span>
+                                    <span class="stats-value nationality">
+                                        <img src="https://flagcdn.com/w40/se.png" class="flag-icon">
+                                        Sweden
+                                    </span>
+                                </li>
+                                <li><span class="stats-label">Born</span> <span class="stats-value">1998.06.04</span></li>
+                                <li><span class="stats-label">Joined</span> <span class="stats-value">2026</span></li>
+                            </ul>
+                            <p class="mt-4 text-sm text-gray-600 text-center">"파괴적인 힘과 타의 추종을 불허하는 결정력을 갖춘 최전방 폭격기"</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Arsenal Chant Section -->
+    <section class="chant-section relative">
+        <div class="chant-bg-text">NORTH LONDON FOREVER</div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto">
+            <h2 class="text-4xl uppercase font-bold text-[var(--arsenal-gold)] mb-6" style="font-family: var(--font-heading);">Arsenal Chant</h2>
+            
+            <div class="lyrics-box">
+                "North London forever<br>
+                Whatever the weather, these streets are our own<br>
+                And my heart will leave you, never<br>
+                My blood will forever run through the stone"
+            </div>
+
+            <!-- Interactive Play Button -->
+            <button class="play-btn" id="chantBtn">
+                <span id="btnIcon">▶</span>
+                <span id="btnText">Play "North London Forever"</span>
+                <!-- Sound wave animation container -->
+                <div class="sound-wave">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </button>
+            <p class="mt-4 text-sm opacity-80">* 실제 음악 파일 대신 재생/일시정지 UI 인터랙션만 구현되었습니다</p>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Chant Button Interaction (Play/Pause Toggle)
+            const chantBtn = document.getElementById('chantBtn');
+            const btnIcon = document.getElementById('btnIcon');
+            const btnText = document.getElementById('btnText');
+            let isPlaying = false;
+
+            chantBtn.addEventListener('click', () => {
+                isPlaying = !isPlaying;
+                
+                if(isPlaying) {
+                    chantBtn.classList.add('playing');
+                    btnIcon.style.display = 'none'; // Hide play arrow
+                    btnText.innerText = 'Now Playing...';
+                } else {
+                    chantBtn.classList.remove('playing');
+                    btnIcon.style.display = 'inline';
+                    btnIcon.innerText = '▶';
+                    btnText.innerText = 'Play "North London Forever"';
+                }
+            });
+
+            // 2. Navbar Scroll Styling Effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                navbar.classList.toggle('scrolled', window.scrollY > 50);
+            });
+        });
+    </script>
+</body>
+</html>
