@@ -653,7 +653,98 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        /* [NEW SECTION] Footer section */
+        .footer {
+            background-color: #011326;
+            color: #94a3b8;
+            padding: 60px 5% 30px 5%;
+            font-size: 0.9rem;
+            border-top: 4px solid var(--arsenal-red);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info h4 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--arsenal-white);
+            margin-bottom: 15px;
+        }
+
+        .footer-info p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            max-width: 400px;
+        }
+
+        .footer-links h5, .footer-sns h5 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--arsenal-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            transition: color 0.2s;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--arsenal-white);
+        }
+
+        .footer-sns-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .sns-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.05);
+            color: var(--arsenal-white);
+            transition: all var(--transition-speed);
+            font-size: 1.2rem;
+        }
+
+        .sns-icon:hover {
+            background-color: var(--arsenal-red);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
+        }
     </style>
 </head>
 <body>
@@ -956,6 +1047,43 @@
             </div>
         </div>
     </div>
+
+     <!-- [NEW] 신뢰도를 더해주는 완성도 높은 푸터 -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h4>4ARSENAL</h4>
+                <p>
+                    이 페이지는 아스날 FC를 사랑하는 팬 및 축구에 관심이 있는 대중들을 위해 만들어진 비영리 목적의 팬 베이스 플랫폼 아카이브입니다.
+                </p>
+                <div class="footer-sns-icons">
+                    <a href="#" class="sns-icon" aria-label="Facebook">🔵</a>
+                    <a href="#" class="sns-icon" aria-label="Instagram">📸</a>
+                    <a href="#" class="sns-icon" aria-label="Youtube">📺</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h5>QUICK LINKS</h5>
+                <ul>
+                    <li><a href="4arsenal_home.html">Home</a></li>
+                    <li><a href="club.html">Club & Squad</a></li>
+                    <li><a href="history.html">History & Legends</a></li>
+                    <li><a href="gunner.html">Gunner Zone</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h5>RESOURCES</h5>
+                <ul>
+                    <li><a href="https://www.arsenal.com/" target="_blank">Arsenal Official</a></li>
+                    <li><a href="https://www.premierleague.com/" target="_blank">Premier League</a></li>
+                    <li><a href="match.html">Match Schedules</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 4ARSENAL. For Gunners, Built for All Football Fans. North London Forever.</p>
+        </div>
+    </footer>
 
     <!-- JavaScript for Interactions -->
     <script>
