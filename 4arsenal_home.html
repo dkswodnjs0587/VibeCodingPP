@@ -698,8 +698,25 @@
 
         @media (max-width: 768px) {
             .mobile-menu-btn { display: block; }
-            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--arsenal-dark-navy); flex-direction: column; align-items: center; padding: 20px 0; gap: 1.5rem; transform: translateY(-150%); transition: transform 0.4s ease; z-index: -1; }
-            .nav-links.active { transform: translateY(0); }
+            .nav-links { 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                width: 100%; 
+                background-color: rgba(2, 34, 68, 0.95); 
+                backdrop-filter: blur(10px);
+                flex-direction: column; 
+                align-items: center; 
+                padding: 20px 0; 
+                gap: 1.5rem; 
+                transform: translateY(-150%); 
+                transition: transform 0.4s ease; 
+                z-index: -1; 
+            }
+            html.dark .nav-links {
+                background-color: rgba(11, 15, 25, 0.95);
+                backdrop-filter: blur(10px);
+            }            .nav-links.active { transform: translateY(0); }
             .hero-title { font-size: 4rem; }
             .footer-container {
                 grid-template-columns: 1fr;
@@ -828,7 +845,7 @@
             </div>
             <div class="guide-card fade-element">
                 <span class="guide-num">02</span>
-                <h3>왜 이름이 '무기고(Arsenal)' 일까?</h3>
+                <h3>왜 이름이 'Gunners' 일까?</h3>
                 <p>
                     아스날의 구단 엠블럼에는 당당하게 <strong>'대포'</strong>가 그려져 있습니다. 1886년 런던 울위치 지역의 무기 공장 노동자들이 모여서 만든 클럽이기 때문입니다. 그래서 구단의 애칭 역시 '포병대'라는 뜻의 <strong>거너스(Gunners)</strong>입니다.
                 </p>

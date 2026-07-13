@@ -51,120 +51,157 @@
             color: #cbd5e1;
         }
 
+        html.dark .navbar {
+            background-color: rgba(11, 15, 25, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255,255,255,0.08);
+        }
+
+        /* [NEW] 다크모드 내 시즌 요약, 최근 경기 결과 등 국문 타이틀 가독성 완전 보증 */
+        html.dark .section-title span:first-child {
+            color: #f1f5f9 !important;
+        }
+
+        html.dark .section-title {
+            border-left-color: var(--arsenal-red) !important;
+        }
+
         html.dark .zone-card {
             background-color: #131c2e;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        html.dark .card-title {
+        html.dark .overview-card {
+            background-color: #131c2e;
+            border-top: 4px solid var(--arsenal-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        html.dark .overview-card h3 {
+            color: #94a3b8;
+        }
+
+        html.dark .overview-value {
+            color: #f1f5f9 !important;
+        }
+
+        html.dark .overview-sub {
+            color: #cbd5e1;
+        }
+
+        html.dark .result-card {
+            background-color: #131c2e;
+            border-top-color: var(--arsenal-red);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        html.dark .result-header {
+            border-bottom-color: #1e293b;
+            color: #94a3b8;
+        }
+
+        html.dark .club-name {
             color: #f1f5f9;
+        }
+
+        html.dark .club-scorers {
+            color: #cbd5e1;
+        }
+
+        html.dark .score-display {
+            color: #f1f5f9;
+        }
+
+        html.dark .match-stat {
+            background-color: #0f172a;
+        }
+
+        html.dark .stat-label {
+            color: #94a3b8;
+        }
+
+        html.dark .stat-values strong {
+            color: #f1f5f9;
+        }
+
+        html.dark .match-footer-info {
+            background: rgba(255,255,255,0.02);
+            border-left-color: var(--arsenal-gold);
+        }
+
+        html.dark .motm-info strong {
+            color: #f1f5f9;
+        }
+
+        html.dark .match-note {
+            color: #94a3b8;
+        }
+
+        html.dark .table-card {
+            background-color: #131c2e;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        html.dark .tabs {
             border-bottom-color: #1e293b;
         }
 
-        html.dark .option-btn {
-            background-color: #1e293b;
+        html.dark .tab-btn {
+            background: #1e293b;
             color: #cbd5e1;
-            border-color: #334155;
         }
 
-        html.dark .option-btn:hover {
+        html.dark .tab-btn.active {
+            background: var(--arsenal-red);
+            color: white;
+        }
+
+        html.dark .standing-table td {
+            border-bottom-color: #1e293b;
+            color: #cbd5e1;
+        }
+
+        html.dark .standing-table tr.highlight-arsenal {
             background-color: rgba(219, 0, 17, 0.15);
-            border-color: var(--arsenal-red);
         }
 
-        html.dark .points-display {
-            color: #cbd5e1;
+        html.dark .standing-table tr.highlight-arsenal td {
+            color: #f87171;
         }
 
-        html.dark .progress-wrapper {
-            background-color: #1e293b;
-        }
-
-        html.dark .task-item {
-            background-color: #0f172a;
-        }
-
-        html.dark .task-info h4 {
-            color: #f1f5f9;
-        }
-
-        html.dark .task-info p {
-            color: #94a3b8;
-        }
-
-        html.dark .cheer-card {
+        html.dark .fixture-list {
             background-color: #131c2e;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        html.dark .cheer-header h2 {
-            color: #f1f5f9;
-        }
-
-        html.dark .cheer-header p {
-            color: #94a3b8;
-        }
-
-        html.dark .cheer-form {
-            background-color: #0f172a;
-        }
-
-        html.dark .cheer-name-input,
-        html.dark .cheer-message-input {
-            background-color: #1e293b;
-            color: #f1f5f9;
-            border-color: #334155;
-        }
-
-        html.dark .cheer-list-header {
-            color: #cbd5e1;
+        html.dark .fixture-item {
             border-bottom-color: #1e293b;
         }
 
-        html.dark .cheer-item {
-            background-color: #1e293b;
-        }
-
-        html.dark .cheer-author {
-            color: #f1f5f9;
-        }
-
-        html.dark .cheer-text {
+        html.dark .fixture-opp {
             color: #cbd5e1;
         }
 
-        html.dark .badge-card {
+        html.dark .fixture-venue {
             background-color: #1e293b;
+            color: #cbd5e1;
         }
 
-        html.dark .badge-card.unlocked {
+        html.dark .transfer-box {
             background-color: #131c2e;
-            box-shadow: 0 5px 15px rgba(156, 130, 74, 0.35);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        html.dark .badge-name {
+        html.dark .transfer-row {
+            border-bottom-color: #1e293b;
+        }
+
+        html.dark .transfer-player {
             color: #f1f5f9;
         }
 
-        html.dark .badge-desc {
-            color: #94a3b8;
-        }
-
-        html.dark .prediction-card {
-            background-color: #131c2e;
-        }
-
-        html.dark .prediction-header h2 {
-            color: #f1f5f9;
-        }
-
-        html.dark .prediction-header p {
-            color: #94a3b8;
-        }
-
-        html.dark .prediction-btn {
-            background-color: #1e293b;
-            color: #f1f5f9;
-            border-color: #334155;
+        html.dark .transfer-club {
+            background-color: #0f172a;
+            color: #cbd5e1;
         }
 
         /* [NEW] 테마 전환 버튼 스타일 */
@@ -235,8 +272,17 @@
             background-color: #022244;
         }
 
+        /* [NEW - PERFECT FIX] 모바일 네비게이션 햄버거 버튼 출력 완전 보장 */
         .mobile-menu-btn {
-            display: none !important;
+            display: none;
+            background: transparent !important;
+            border: none !important;
+            color: var(--arsenal-white) !important;
+            font-size: 1.75rem !important;
+            cursor: pointer;
+            z-index: 1001;
+            outline: none !important;
+            line-height: 1;
         }
 
         .nav-logo-link {
@@ -314,7 +360,6 @@
             letter-spacing: 2px;
             margin-bottom: 10px;
             font-family: var(--font-heading);
-
             animation: fadeInDown 0.8s ease;
         }
         
@@ -326,7 +371,6 @@
             font-size: 1.2rem;
             font-weight: 600;
             color: #f1f1f1;
-
             opacity: 0;
             animation: fadeInUp 0.8s ease 0.2s forwards;
         }
@@ -344,20 +388,13 @@
             display:flex;
             align-items:flex-end;
             gap:10px;
-
             font-family:'Pretendard', 'Noto Sans KR', sans-serif;
-
             font-size:2.2rem;
             font-weight:800;
-
             color:var(--arsenal-dark-navy);
-
             border-left:5px solid var(--arsenal-red);
-
             padding-left:15px;
-
             margin:40px 0 25px;
-
             letter-spacing:-0.03em;
         }
 
@@ -366,19 +403,12 @@
         }
 
         .section-title .sub-title{
-
             font-family:'Roboto', sans-serif;
-
             font-size:.72rem;
-
             font-weight:600;
-
             letter-spacing:2px;
-
             color:#8b8b8b;
-
             text-transform:uppercase;
-
             margin-bottom:4px;
         }
 
@@ -433,7 +463,6 @@
             font-weight: 500;
         }
 
-        /* Two-Column Grid for Match Result & Standings */
         .grid-split {
             display: grid;
             grid-template-columns: 1fr;
@@ -460,12 +489,10 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             padding: 22px;
             border-top: 5px solid var(--arsenal-red);
-
             display: flex;
             flex-direction: column;
         }
 
-        /* Solves the text wrapping issue on small screens by making it highly responsive */
         .result-header {
             display: flex;
             flex-direction: column;
@@ -496,10 +523,8 @@
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
-
             margin-top: 8px;
             margin-bottom: 5px;
-
             padding: 5px 20px 0;
         }   
 
@@ -526,7 +551,6 @@
             color: var(--arsenal-dark-navy);
         }
 
-        /* Position scorers directly under team logos as requested */
         .club-scorers {
             font-size: 0.85rem;
             font-weight: 700;
@@ -540,7 +564,6 @@
             flex-direction: column;
             align-items: center;
             width: 36%;
-
             margin-top: 10px;
         }
 
@@ -621,10 +644,8 @@
             justify-content: space-between;
             align-items: center;
             gap: 15px;
-
             margin-top: 14px;
             padding: 12px 14px;
-
             background: rgba(2, 34, 68, 0.04);
             border-left: 4px solid var(--arsenal-gold);
             border-radius: 6px;
@@ -898,7 +919,6 @@
             flex-grow: 1;
         }
 
-        /* 선수 / 소속팀 / 이적료 제목 행 */
         .transfer-header,
         .transfer-row {
             display: grid;
@@ -912,7 +932,6 @@
             margin-bottom: 2px;
             background-color: var(--arsenal-dark-navy);
             border-radius: 6px;
-
             font-family: var(--font-heading);
             font-size: 0.88rem;
             font-weight: 500;
@@ -944,7 +963,6 @@
             display: flex;
             align-items: center;
             gap: 8px;
-
             min-width: 0;
             font-size: 0.82rem;
             color: #666;
@@ -1025,15 +1043,18 @@
             .navbar {
                 padding: 1rem 3%;
             }
+            
+            /* [NEW - OVERRIDE FORCED] 모바일 네비게이션 햄버거 노출 보증 */
             .mobile-menu-btn {
-                display: block;
+                display: block !important;
             }
             .nav-links {
                 position: absolute;
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background-color: var(--arsenal-dark-navy);
+                background-color: rgba(2, 34, 68, 0.95);
+                backdrop-filter: blur(10px);
                 flex-direction: column;
                 align-items: center;
                 padding: 20px 0;
@@ -1041,6 +1062,10 @@
                 transform: translateY(-150%);
                 transition: transform 0.4s ease;
                 z-index: -1;
+            }
+            html.dark .nav-links {
+                background-color: rgba(11, 15, 25, 0.95);
+                backdrop-filter: blur(10px);
             }
             .nav-links.active {
                 transform: translateY(0);
@@ -1074,7 +1099,6 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1086,7 +1110,6 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1262,7 +1285,6 @@
                         <div class="club-side">
                             <img src="https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg" alt="PSG Logo" class="club-logo">
                             <span class="club-name">PSG</span>
-                            <!-- PSG Scorers placed right underneath the logo -->
                             <div class="club-scorers">
                                 Ousmane Dembélé (65' pen.)
                             </div>
@@ -1276,7 +1298,6 @@
                         <div class="club-side">
                             <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="Arsenal Logo" class="club-logo">
                             <span class="club-name">ARSENAL</span>
-                            <!-- Arsenal Scorers placed right underneath the logo -->
                             <div class="club-scorers">
                                 Kai Havertz (6')
                             </div>
@@ -1634,7 +1655,7 @@
                 </div>
             </div>
 
-            <!-- Right: Transfer Market Card (Flex structure synchronized) -->
+            <!-- Right: Transfer Market Card -->
             <div>
                 <h2 class="section-title">
                     <span>이적 시장 <span class="highlight">현황</span></span>
@@ -1653,66 +1674,39 @@
                         
                             <div class="transfer-row">
                                 <span class="transfer-player">Illan Meslier</span>
-                        
                                 <span class="transfer-club">
-                                    <img
-                                        src="https://upload.wikimedia.org/wikipedia/en/5/54/Leeds_United_F.C._logo.svg"
-                                        alt="Bayer Leverkusen"
-                                        class="transfer-club-logo"
-                                    >
+                                    <img src="https://upload.wikimedia.org/wikipedia/en/5/54/Leeds_United_F.C._logo.svg" alt="Leeds" class="transfer-club-logo">
                                     <span class="transfer-club-name">Leeds United FC(FA)</span>
                                 </span>
-                        
                                 <span class="transfer-fee">자유 이적</span>
                             </div>
                         
                             <div class="transfer-row">
                                 <span class="transfer-player">Piero Hincapié</span>
-                        
                                 <span class="transfer-club">
-                                    <img
-                                        src="https://upload.wikimedia.org/wikipedia/en/5/59/Bayer_04_Leverkusen_logo.svg"
-                                        alt="Bayer Leverkusen"
-                                        class="transfer-club-logo"
-                                    >
-                                    <span class="transfer-club-name">
-                                        Leverkusen(완전 이적)
-                                    </span>
+                                    <img src="https://upload.wikimedia.org/wikipedia/en/5/59/Bayer_04_Leverkusen_logo.svg" alt="Bayer Leverkusen" class="transfer-club-logo">
+                                    <span class="transfer-club-name">Leverkusen(완전 이적)</span>
                                 </span>
-                        
                                 <span class="transfer-fee">£34M</span>
                             </div>
                             
                             <div class="transfer-row">
                                 <span class="transfer-player">Eberechi Eze</span>
-                        
                                 <span class="transfer-club">
-                                    <img
-                                        src="https://upload.wikimedia.org/wikipedia/en/a/a2/Crystal_Palace_FC_logo_%282022%29.svg"
-                                        alt="Crystal Palace"
-                                        class="transfer-club-logo"
-                                    >
+                                    <img src="https://upload.wikimedia.org/wikipedia/en/a/a2/Crystal_Palace_FC_logo_%282022%29.svg" alt="Crystal Palace" class="transfer-club-logo">
                                     <span class="transfer-club-name">Crystal Palace</span>
                                 </span>
-                        
                                 <span class="transfer-fee">£59M</span>
                             </div>
                         
                             <div class="transfer-row">
                                 <span class="transfer-player">Viktor Gyökeres</span>
-                        
                                 <span class="transfer-club">
-                                    <img
-                                        src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Sporting_Clube_de_Portugal_2026.svg"
-                                        alt="Sporting CP"
-                                        class="transfer-club-logo"
-                                    >
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Sporting_Clube_de_Portugal_2026.svg" alt="Sporting CP" class="transfer-club-logo">
                                     <span class="transfer-club-name">Sporting CP</span>
                                 </span>
-                        
                                 <span class="transfer-fee">£54M</span>
                             </div>
-                        
                         </div>
                     </div>
 
@@ -1728,65 +1722,37 @@
                         
                             <div class="transfer-row">
                                 <span class="transfer-player">Leandro Trossard</span>
-                        
                                 <span class="transfer-club">
-                                    <img
-                                        src="https://upload.wikimedia.org/wikipedia/commons/d/da/BesiktasJK-Logo.svg"
-                                        alt="Besiktas"
-                                        class="transfer-club-logo"
-                                    >
-                                    <span class="transfer-club-name">
-                                        Besiktas(루머)
-                                    </span>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/BesiktasJK-Logo.svg" alt="Besiktas" class="transfer-club-logo">
+                                    <span class="transfer-club-name">Besiktas(루머)</span>
                                 </span>
-                        
                                 <span class="transfer-fee">£17M</span>
                             </div>
                         
                             <div class="transfer-row">
                                 <span class="transfer-player">Jakub Kiwior</span>
-                        
                                 <span class="transfer-club">
-                                    <img
-                                        src="https://upload.wikimedia.org/wikipedia/en/f/f1/FC_Porto.svg"
-                                        alt="FC Porto"
-                                        class="transfer-club-logo"
-                                    >
-                                    <span class="transfer-club-name">
-                                        FC Porto(완전 이적)
-                                    </span>
+                                    <img src="https://upload.wikimedia.org/wikipedia/en/f/f1/FC_Porto.svg" alt="FC Porto" class="transfer-club-logo">
+                                    <span class="transfer-club-name">FC Porto</span>
                                 </span>
-                        
                                 <span class="transfer-fee">£1.7M</span>
                             </div>
                         
                             <div class="transfer-row">
                                 <span class="transfer-player">Karl Hein</span>
-                        
                                 <span class="transfer-club">
-                                    <img
-                                        src="https://upload.wikimedia.org/wikipedia/commons/b/be/SV-Werder-Bremen-Logo.svg"
-                                        alt="Werder Bremen"
-                                        class="transfer-club-logo"
-                                    >
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/SV-Werder-Bremen-Logo.svg" alt="Werder Bremen" class="transfer-club-logo">
                                     <span class="transfer-club-name">Werder Bremen</span>
                                 </span>
-                        
                                 <span class="transfer-fee">£2.6M</span>
                             </div>
                         
                             <div class="transfer-row">
                                 <span class="transfer-player">Oleksandr Zinchenko</span>
-                        
                                 <span class="transfer-club">
-                                    <img
-                                        src="https://upload.wikimedia.org/wikipedia/en/7/79/Ajax_Amsterdam.svg"
-                                        alt="Ajax"
-                                        class="transfer-club-logo"
-                                    >
+                                    <img src="https://upload.wikimedia.org/wikipedia/en/7/79/Ajax_Amsterdam.svg" alt="Ajax" class="transfer-club-logo">
                                     <span class="transfer-club-name">Ajax</span>
                                 </span>
-                        
                                 <span class="transfer-fee">£1.3M</span>
                             </div>                        
                         </div>
@@ -1796,7 +1762,7 @@
         </div>
     </div>
 
-     <!-- [NEW] 신뢰도를 더해주는 완성도 높은 푸터 -->
+    <!-- [NEW] 신뢰도를 더해주는 완성도 높은 푸터 -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-info">
@@ -1840,7 +1806,7 @@
             const themeToggleBtn = document.getElementById('themeToggleBtn');
             const updateThemeUI = () => {
                 const isDark = document.documentElement.classList.contains('dark');
-                themeToggleBtn.innerHTML = isDark ? '☀️' : '🌙';
+                themeToggleBtn.innerHTML = isDark ? '☼' : '☾';
             };
 
             themeToggleBtn.addEventListener('click', () => {
@@ -1858,7 +1824,7 @@
                 navbar.classList.toggle('scrolled', window.scrollY > 50);
             });
 
-            // Mobile Menu Toggle Action
+            // [NEW - RE-VERIFIED] 모바일 메뉴 토글 로직 추가
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const navLinks = document.getElementById('navLinks');
             if (mobileMenuBtn) {

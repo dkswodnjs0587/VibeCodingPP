@@ -52,9 +52,31 @@
             color: #cbd5e1;
         }
 
+        html.dark .navbar {
+            background-color: rgba(11, 15, 25, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255,255,255,0.08);
+        }
+
         html.dark .info-card {
             background-color: #131c2e;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* [NEW] 다크모드 내 ARSENAL OVERVIEW 타이틀 및 마스코트 텍스트 완벽 보정 */
+        html.dark .info-card h2 {
+            color: #f1f5f9 !important;
+        }
+
+        html.dark .info-card h4 {
+            color: var(--arsenal-gold) !important;
+        }
+
+        html.dark .info-card p {
+            color: #cbd5e1 !important;
+        }
+
+        html.dark .info-card div.bg-\[\#022244\]\/5 {
+            background-color: rgba(255, 255, 255, 0.03) !important;
         }
 
         html.dark .info-list li {
@@ -137,9 +159,16 @@
             font-family: var(--font-heading);
         }
 
+        /* [NEW] 모바일 네비게이션 햄버거 버튼 스타일 정상화 */
         .mobile-menu-btn {
-            display: none !important;
-        }
+            display: none;
+            background: none;
+            border: none;
+            color: var(--arsenal-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }   
 
         /* ==========================================================================
            Navigation Bar Styles
@@ -678,6 +707,42 @@
             font-size: 0.8rem;
         }
 
+        /* [NEW] 모바일 네비게이션 햄버거 트랜지션 스타일 연동 */
+        @media (max-width: 768px) {
+            .mobile-menu-btn { 
+                display: block !important; 
+            }
+            .nav-links { 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                width: 100%; 
+                background-color: rgba(2, 34, 68, 0.95); 
+                backdrop-filter: blur(10px);
+                flex-direction: column; 
+                align-items: center; 
+                padding: 20px 0; 
+                gap: 1.5rem; 
+                transform: translateY(-150%); 
+                transition: transform 0.4s ease; 
+                z-index: -1; 
+            }
+            html.dark .nav-links {
+                background-color: rgba(11, 15, 25, 0.95);
+                backdrop-filter: blur(10px);
+            }
+            .nav-links.active { 
+                transform: translateY(0); 
+            }
+            .page-title { 
+                font-size: 2.5rem; 
+            }
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
         @media (max-width: 768px) {
             .footer-container {
                 grid-template-columns: 1fr;
@@ -755,12 +820,12 @@
                 <div class="mt-8 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center gap-6 bg-[#022244]/5 p-5 rounded-xl border border-[var(--arsenal-gold)]/20">
                     <!-- Mascot: Gunnersaurus Rex Photo replacement -->
                     <div class="w-24 h-24 flex-shrink-0 bg-white rounded-xl shadow-md overflow-hidden flex items-center justify-center border-2 border-[var(--arsenal-gold)]">
-                        <img src="./image/gunnersaurus.jpg" alt="Gunnersaurus Rex" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/150x150/022244/ffffff?text=Gunner'">
+                        <img src="./image/gunnersaurus.jpg" alt="Gunnersaurus" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/150x150/022244/ffffff?text=Gunner'">
                     </div>
                     <div class="text-center sm:text-left">
                         <div class="flex items-center justify-center sm:justify-start gap-2 mb-2">
                             <span class="text-2xl">🦖</span>
-                            <h4 class="font-bold text-[var(--arsenal-dark-navy)] text-lg" style="font-family: var(--font-heading);">Gunnersaurus Rex</h4>
+                            <h4 class="font-bold text-[var(--arsenal-dark-navy)] text-lg" style="font-family: var(--font-heading);">Gunnersaurus    </h4>
                         </div>
                         <p class="text-sm text-gray-600 leading-relaxed font-normal">
                             아스날 FC의 역사적 마스코트! 1993년 구단 공식 캐릭터로 데뷔한 이래 하이버리부터 에미레이트 스타디움까지 항상 피치 위에서 거너스를 응원하며 명물 마스코트로 많은 사랑을 받고 있습니다
@@ -1246,6 +1311,13 @@
             // 초기 아이콘 상태 정렬
             updateThemeUI();
 
+            // [NEW] 모바일 메뉴 토글 로직 추가
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
 
             // 1. Chant Button Interaction (Play/Pause Toggle)
             const chantBtn = document.getElementById('chantBtn');
