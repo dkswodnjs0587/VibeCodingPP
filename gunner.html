@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="ko">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Gunner Zone | 4ARSENAL</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
-<style>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Gunner Zone | 4ARSENAL</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <style>
         /* ==========================================================================
            아스날 디자인 토큰 및 기본 스타일 (home.html과 100% 일치)
            ========================================================================== */
@@ -20,10 +23,10 @@
             --arsenal-gold: #9C824A;
             --arsenal-white: #FFFFFF;
             --arsenal-light-gray: #F4F4F4;
-            
+
             --font-heading: 'Oswald', sans-serif;
             --font-body: 'Roboto', sans-serif;
-            
+
             --transition-speed: 0.3s;
         }
 
@@ -61,7 +64,7 @@
 
             background-color: rgba(2, 34, 68, 0.95);
             backdrop-filter: blur(10px);
-            
+
             padding: 1rem 5%;
 
             display: flex;
@@ -69,11 +72,11 @@
             align-items: center;
 
             z-index: 1000;
-            
-            box-shadow: 
+
+            box-shadow:
                 0 2px 10px rgba(0, 0, 0, 0.3),
-                0 1px 0 rgba(255,255,255,0.35);
-                
+                0 1px 0 rgba(255, 255, 255, 0.35);
+
             transition: all var(--transition-speed) ease;
         }
 
@@ -85,59 +88,59 @@
 
         .nav-logo-link {
             font-family: 'Oswald', sans-serif;
-            display:flex;
-            align-items:baseline;
-            gap:10px;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
         }
 
         .nav-logo-main {
-            font-size:1.8rem;
-            font-weight:700;
-            color:#FFFFFF;
-            letter-spacing:1px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: 1px;
         }
 
         .nav-logo-sub {
-            font-size:0.9rem;
-            color:#9C824A;
-            text-transform:uppercase;
+            font-size: 0.9rem;
+            color: #9C824A;
+            text-transform: uppercase;
         }
 
         .nav-links {
-            display:flex;
-            gap:2rem;
+            display: flex;
+            gap: 2rem;
         }
 
         .nav-links li a {
-            color:#FFFFFF;
-            font-family:'Oswald', sans-serif;
-            font-size:1.1rem;
-            font-weight:500;
-            text-transform:uppercase;
-            position:relative;
-            padding:5px 0;
-            transition:color 0.3s;
+            color: #FFFFFF;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s;
         }
 
         .nav-links li a::after {
-            content:'';
-            position:absolute;
-            width:0;
-            height:2px;
-            bottom:0;
-            left:0;
-            background-color:#9C824A;
-            transition:width 0.3s ease;
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #9C824A;
+            transition: width 0.3s ease;
         }
 
         .nav-links li a:hover,
         .nav-links li a.active {
-            color:#9C824A;
+            color: #9C824A;
         }
 
         .nav-links li a:hover::after,
         .nav-links li a.active::after {
-            width:100%;
+            width: 100%;
         }
 
         /* ==========================================================================
@@ -145,16 +148,14 @@
            ========================================================================== */
         .page-header {
             background:
-            linear-gradient(
-                rgba(2,34,68,0.85),
-                rgba(2,34,68,0.95)
-            ),
-            url('./image/main.jpg') center/cover no-repeat;
+                linear-gradient(rgba(2, 34, 68, 0.85),
+                    rgba(2, 34, 68, 0.95)),
+                url('./image/main.jpg') center/cover no-repeat;
 
-            padding:150px 0 60px;
-            text-align:center;
-            color:white;
-            border-bottom:4px solid #9C824A;
+            padding: 150px 0 60px;
+            text-align: center;
+            color: white;
+            border-bottom: 4px solid #9C824A;
         }
 
         .page-title {
@@ -197,11 +198,25 @@
             align-items: stretch;
         }
 
-        .quiz-area { grid-area: quiz; }
-        .level-area { grid-area: level; }
-        .cheer-area { grid-area: cheer; }
-        .badge-area { grid-area: badge; }
-        .prediction-area { grid-area: prediction; }
+        .quiz-area {
+            grid-area: quiz;
+        }
+
+        .level-area {
+            grid-area: level;
+        }
+
+        .cheer-area {
+            grid-area: cheer;
+        }
+
+        .badge-area {
+            grid-area: badge;
+        }
+
+        .prediction-area {
+            grid-area: prediction;
+        }
 
         .quiz-area,
         .level-area,
@@ -211,11 +226,11 @@
             min-width: 0;
         }
 
-        .quiz-area > .zone-card,
-        .level-area > .zone-card,
-        .cheer-area > .cheer-section,
-        .badge-area > .zone-card,
-        .prediction-area > .prediction-section {
+        .quiz-area>.zone-card,
+        .level-area>.zone-card,
+        .cheer-area>.cheer-section,
+        .badge-area>.zone-card,
+        .prediction-area>.prediction-section {
             height: 100%;
         }
 
@@ -302,14 +317,15 @@
             height: 24px;
             position: relative;
             overflow: hidden;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
             margin-bottom: 10px;
         }
 
         .progress-bar {
             background: linear-gradient(90deg, var(--arsenal-red) 0%, #ff4d5a 100%);
             height: 100%;
-            width: 60%; /* Default starting value */
+            width: 60%;
+            /* Default starting value */
             border-radius: 20px;
             transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
@@ -323,7 +339,7 @@
             font-weight: bold;
             font-size: 0.9rem;
             line-height: 24px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
             z-index: 2;
         }
 
@@ -415,7 +431,7 @@
             bottom: -20px;
             font-family: var(--font-heading);
             font-size: 8rem;
-            color: rgba(255,255,255,0.05);
+            color: rgba(255, 255, 255, 0.05);
             font-weight: 700;
         }
 
@@ -545,11 +561,9 @@
             padding: 25px;
             margin-bottom: 22px;
 
-            background: linear-gradient(
-                135deg,
-                var(--arsenal-dark-navy),
-                var(--arsenal-navy)
-            );
+            background: linear-gradient(135deg,
+                    var(--arsenal-dark-navy),
+                    var(--arsenal-navy));
 
             border-radius: 12px;
             color: white;
@@ -873,6 +887,7 @@
         }
 
         @media (min-width: 992px) {
+
             .cheer-area,
             .badge-area {
                 height: 640px;
@@ -1089,7 +1104,7 @@
             max-width: 450px;
             width: 90%;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
             border-top: 8px solid var(--arsenal-gold);
             transform: scale(0.8);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -1147,19 +1162,44 @@
            Animations
            ========================================================================== */
         @keyframes pulseGlow {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(156, 130, 74, 0.4); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(156, 130, 74, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(156, 130, 74, 0); }
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(156, 130, 74, 0.4);
+            }
+
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 15px rgba(156, 130, 74, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(156, 130, 74, 0);
+            }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ==========================================================================
@@ -1261,7 +1301,8 @@
             max-width: 400px;
         }
 
-        .footer-links h5, .footer-sns h5 {
+        .footer-links h5,
+        .footer-sns h5 {
             font-family: var(--font-heading);
             font-size: 1.1rem;
             color: var(--arsenal-gold);
@@ -1294,7 +1335,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background-color: rgba(255,255,255,0.05);
+            background-color: rgba(255, 255, 255, 0.05);
             color: var(--arsenal-white);
             transition: all var(--transition-speed);
             font-size: 1.2rem;
@@ -1322,238 +1363,255 @@
         }
     </style>
 </head>
+
 <body>
-<!-- Navigation Bar (4arsenal_home.html과 완전 호환) -->
-<nav class="navbar" id="navbar">
-<div class="nav-logo">
-<a class="nav-logo-link" href="4arsenal_home.html">
-<span class="nav-logo-main">4ARSENAL</span>
-<span class="nav-logo-sub">For Gunners</span>
-</a>
-</div>
-<button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-<ul class="nav-links" id="navLinks">
-<li><a href="4arsenal_home.html">Home</a></li>
-<li><a href="club.html">Club</a></li>
-<li><a href="history.html">History</a></li>
-<li><a href="match.html">Match</a></li>
-<li><a class="active" href="gunner.html">Gunner Zone</a></li>
-</ul>
-</nav>
-<!-- Page Header -->
-<header class="page-header">
-<div class="container mx-auto px-4">
-<h1 class="page-title">Gunner <span>Zone</span></h1>
-<p class="page-subtitle">다양한 활동을 통해 포인트를 쌓고 진정한 레전드 거너로 거듭나세요!</p>
-</div>
-</header>
-<!-- Content Layout -->
-<main class="content-container"><section class="quiz-area"><div class="zone-card">
-<h3 class="card-title">⚽ Gunner Quiz</h3>
-<div class="quiz-container">
-<div class="quiz-question-box">
-<div class="quiz-meta" id="quizProgress">Question 1 of 8</div>
-<div class="quiz-question" id="questionText">아스날의 홈구장은 어디일까요?</div>
-</div>
-<div class="quiz-options" id="optionsBox">
-<!-- Options generated dynamically by JS -->
-</div>
-<div class="feedback-message" id="feedbackMessage"></div>
-</div>
-</div></section><section class="level-area"><div class="zone-card">
-<h3 class="card-title">📈 Gunner Level</h3>
-<div class="level-badge" id="levelLabel">Lv.1 Rookie Gunner</div>
-<div class="points-display">
-                    My Points: <span class="points-number" id="pointsText">60</span> / <span id="nextLevelPts">100</span>
-</div>
-<div class="progress-wrapper">
-<div class="progress-text" id="progressPctText">60%</div>
-<div class="progress-bar" id="scoreProgressBar" style="width: 60%;"></div>
-</div>
-<!-- Point Action Tasks -->
-<div class="task-list">
-<div class="task-item">
-<div class="task-info">
-<h4>📢 응원가 부르기</h4>
-<p>North London Forever 응원가 클릭 (+5 Pts)</p>
-</div>
-<button class="task-btn" id="taskChantBtn">확인</button>
-</div>
-<div class="task-item">
-<div class="task-info">
-<h4>📣 응원 한마디 남기기</h4>
-<p>아스날을 향한 응원 메시지 작성 (+5 Pts)</p>
-</div>
-<button class="task-btn" id="taskCheerBtn">
+    <!-- Navigation Bar (4arsenal_home.html과 완전 호환) -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo">
+            <a class="nav-logo-link" href="4arsenal_home.html">
+                <span class="nav-logo-main">4ARSENAL</span>
+                <span class="nav-logo-sub">For Gunners</span>
+            </a>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="4arsenal_home.html">Home</a></li>
+            <li><a href="club.html">Club</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="match.html">Match</a></li>
+            <li><a class="active" href="gunner.html">Gunner Zone</a></li>
+        </ul>
+    </nav>
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container mx-auto px-4">
+            <h1 class="page-title">Gunner <span>Zone</span></h1>
+            <p class="page-subtitle">다양한 활동을 통해 포인트를 쌓고 진정한 레전드 거너로 거듭나세요!</p>
+        </div>
+    </header>
+    <!-- Content Layout -->
+    <main class="content-container">
+        <section class="quiz-area">
+            <div class="zone-card">
+                <h3 class="card-title">⚽ Gunner Quiz</h3>
+                <div class="quiz-container">
+                    <div class="quiz-question-box">
+                        <div class="quiz-meta" id="quizProgress">Question 1 of 8</div>
+                        <div class="quiz-question" id="questionText">아스날의 홈구장은 어디일까요?</div>
+                    </div>
+                    <div class="quiz-options" id="optionsBox">
+                        <!-- Options generated dynamically by JS -->
+                    </div>
+                    <div class="feedback-message" id="feedbackMessage"></div>
+                </div>
+            </div>
+        </section>
+        <section class="level-area">
+            <div class="zone-card">
+                <h3 class="card-title">📈 Gunner Level</h3>
+                <div class="level-badge" id="levelLabel">Lv.1 Rookie Gunner</div>
+                <div class="points-display">
+                    My Points: <span class="points-number" id="pointsText">60</span> / <span
+                        id="nextLevelPts">100</span>
+                </div>
+                <div class="progress-wrapper">
+                    <div class="progress-text" id="progressPctText">60%</div>
+                    <div class="progress-bar" id="scoreProgressBar" style="width: 60%;"></div>
+                </div>
+                <!-- Point Action Tasks -->
+                <div class="task-list">
+                    <div class="task-item">
+                        <div class="task-info">
+                            <h4>📢 응원가 부르기</h4>
+                            <p>North London Forever 응원가 클릭 (+5 Pts)</p>
+                        </div>
+                        <button class="task-btn" id="taskChantBtn">확인</button>
+                    </div>
+                    <div class="task-item">
+                        <div class="task-info">
+                            <h4>📣 응원 한마디 남기기</h4>
+                            <p>아스날을 향한 응원 메시지 작성 (+5 Pts)</p>
+                        </div>
+                        <button class="task-btn" id="taskCheerBtn">
                             이동
                         </button>
-</div>
-</div>
-</div></section><section class="cheer-area"><section class="cheer-section">
-<div class="cheer-card">
-<div class="cheer-header">
-<div>
-<span class="cheer-label">SUPPORT THE GUNNERS</span>
-<h2>📣 아스날에게 응원 한마디</h2>
-<p>거너스를 향한 응원의 메시지를 남겨보세요.</p>
-</div>
-<span class="cheer-reward" id="cheerReward">
-    첫 작성 +5 Pts
-</span>
-</div>
-<div class="cheer-form">
-<input class="cheer-name-input" id="cheerNameInput" maxlength="12" placeholder="닉네임" type="text"/>
-<textarea class="cheer-message-input" id="cheerMessageInput" maxlength="100" placeholder="아스날에게 응원의 한마디를 남겨주세요!"></textarea>
-<div class="cheer-form-bottom">
-<span class="cheer-char-count" id="cheerCharCount">
-                                    0 / 100
-                                </span>
-<button class="cheer-submit-btn" id="cheerSubmitBtn" type="button">
-                                    응원 등록
-                                </button>
-</div>
-</div>
-<div class="cheer-list-header">
-<strong>🔴 Gunners Messages</strong>
-<span id="cheerCount">0개의 응원</span>
-</div>
-<div class="cheer-list" id="cheerList">
-<div class="cheer-empty" id="cheerEmpty">
-                                아직 등록된 응원이 없습니다.<br/>
-                                첫 번째 거너가 되어 응원을 남겨보세요!
-                            </div>
-</div>
-</div>
-</section></section><section class="badge-area"><div class="zone-card">
-<h3 class="card-title">🏆 Badge System</h3>
-<p class="text-sm text-gray-600">특정 도전을 완수하고 전용 뱃지를 잠금 해제해 보세요.</p>
-<div class="badge-grid">
-<!-- Badge 1: First Gunner -->
-<div class="badge-card" id="badgeFirst">
-<div class="badge-icon">🔴</div>
-<div class="badge-name">Welcome Gunner</div>
-<div class="badge-desc">Gunner Zone 첫 접속(+60 Pts)</div>
-</div>
-<div class="badge-card" id="badgeCheer">
-<div class="badge-icon">📣</div>
-<div class="badge-name">True Supporter</div>
-<div class="badge-desc">첫 응원 메시지 작성</div>
-</div>
-<!-- Badge 3: Quiz Master -->
-<div class="badge-card" id="badgeQuiz">
-<div class="badge-icon">⚽</div>
-<div class="badge-name">Quiz Master</div>
-<div class="badge-desc">퀴즈 8문제 모두 정답</div>
-</div>
-<div class="badge-card" id="badgePredictor">
-<div class="badge-icon">🔮</div>
-<div class="badge-name">Match Predictor</div>
-<div class="badge-desc">첫 경기 결과 예측 완료</div>
-</div>
-</div>
-</div></section><section class="prediction-area"><section class="prediction-section">
-<div class="prediction-card">
-<div class="prediction-header">
-<div>
-<span class="prediction-label">MATCH PREDICTION</span>
-<h2>🔮 다음 경기 결과 예측</h2>
-<p>
-                        아스날의 다음 경기 결과를 예측하고 포인트를 획득하세요.
-                    </p>
-</div>
-<span class="prediction-reward" id="predictionReward">
-    +10 Pts
-</span>
-</div>
-<div class="prediction-match">
-<div class="prediction-team">
-<img alt="Arsenal" src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg"/>
-<strong>Arsenal</strong>
-</div>
-<div class="prediction-vs">
-<span>VS</span>
-<small>Community Shield</small>
-</div>
-<div class="prediction-team">
-<img alt="Manchester_City" src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg"/>
-<strong>Manchester City</strong>
-</div>
-</div>
-<div class="prediction-options">
-<button class="prediction-btn" data-prediction="win" type="button">
-                    🔴 아스날 승리
-                </button>
-<button class="prediction-btn" data-prediction="draw" type="button">
-                    🤝 무승부
-                </button>
-<button class="prediction-btn" data-prediction="lose" type="button">
-                    🔵 맨체스터 시티 승리
-                </button>
-</div>
-<button class="prediction-submit" disabled="" id="predictionSubmitBtn" type="button">
-                예측 제출
-            </button>
-<p class="prediction-message" id="predictionMessage"></p>
-</div>
-</section></section></main>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cheer-area">
+            <section class="cheer-section">
+                <div class="cheer-card">
+                    <div class="cheer-header">
+                        <div>
+                            <span class="cheer-label">SUPPORT THE GUNNERS</span>
+                            <h2>📣 아스날에게 응원 한마디</h2>
+                            <p>거너스를 향한 응원의 메시지를 남겨보세요.</p>
+                        </div>
+                        <span class="cheer-reward" id="cheerReward">
+                            첫 작성 +5 Pts
+                        </span>
+                    </div>
+                    <div class="cheer-form">
+                        <input class="cheer-name-input" id="cheerNameInput" maxlength="12" placeholder="닉네임"
+                            type="text" />
+                        <textarea class="cheer-message-input" id="cheerMessageInput" maxlength="100"
+                            placeholder="아스날에게 응원의 한마디를 남겨주세요!"></textarea>
+                        <div class="cheer-form-bottom">
+                            <span class="cheer-char-count" id="cheerCharCount">
+                                0 / 100
+                            </span>
+                            <button class="cheer-submit-btn" id="cheerSubmitBtn" type="button">
+                                응원 등록
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cheer-list-header">
+                        <strong>🔴 Gunners Messages</strong>
+                        <span id="cheerCount">0개의 응원</span>
+                    </div>
+                    <div class="cheer-list" id="cheerList">
+                        <div class="cheer-empty" id="cheerEmpty">
+                            아직 등록된 응원이 없습니다.<br />
+                            첫 번째 거너가 되어 응원을 남겨보세요!
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <section class="badge-area">
+            <div class="zone-card">
+                <h3 class="card-title">🏆 Badge System</h3>
+                <p class="text-sm text-gray-600">특정 도전을 완수하고 전용 뱃지를 잠금 해제해 보세요.</p>
+                <div class="badge-grid">
+                    <!-- Badge 1: First Gunner -->
+                    <div class="badge-card" id="badgeFirst">
+                        <div class="badge-icon">🔴</div>
+                        <div class="badge-name">Welcome Gunner</div>
+                        <div class="badge-desc">Gunner Zone 첫 접속(+60 Pts)</div>
+                    </div>
+                    <div class="badge-card" id="badgeCheer">
+                        <div class="badge-icon">📣</div>
+                        <div class="badge-name">True Supporter</div>
+                        <div class="badge-desc">첫 응원 메시지 작성</div>
+                    </div>
+                    <!-- Badge 3: Quiz Master -->
+                    <div class="badge-card" id="badgeQuiz">
+                        <div class="badge-icon">⚽</div>
+                        <div class="badge-name">Quiz Master</div>
+                        <div class="badge-desc">퀴즈 8문제 모두 정답</div>
+                    </div>
+                    <div class="badge-card" id="badgePredictor">
+                        <div class="badge-icon">🔮</div>
+                        <div class="badge-name">Match Predictor</div>
+                        <div class="badge-desc">첫 경기 결과 예측 완료</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="prediction-area">
+            <section class="prediction-section">
+                <div class="prediction-card">
+                    <div class="prediction-header">
+                        <div>
+                            <span class="prediction-label">MATCH PREDICTION</span>
+                            <h2>🔮 다음 경기 결과 예측</h2>
+                            <p>
+                                아스날의 다음 경기 결과를 예측하고 포인트를 획득하세요.
+                            </p>
+                        </div>
+                        <span class="prediction-reward" id="predictionReward">
+                            +10 Pts
+                        </span>
+                    </div>
+                    <div class="prediction-match">
+                        <div class="prediction-team">
+                            <img alt="Arsenal" src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" />
+                            <strong>Arsenal</strong>
+                        </div>
+                        <div class="prediction-vs">
+                            <span>VS</span>
+                            <small>Community Shield</small>
+                            <span style="display: block; font-size: 0.8rem; color: var(--arsenal-gold); margin-top: 6px; font-weight: 600; letter-spacing: 0.5px;">📅 8월 16일 (일)</span>
+                        </div>
+                        <div class="prediction-team">
+                            <img alt="Manchester_City"
+                                src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg" />
+                            <strong>Manchester City</strong>
+                        </div>
+                    </div>
+                    <div class="prediction-options">
+                        <button class="prediction-btn" data-prediction="win" type="button">
+                            🔴 아스날 승리
+                        </button>
+                        <button class="prediction-btn" data-prediction="draw" type="button">
+                            🤝 무승부
+                        </button>
+                        <button class="prediction-btn" data-prediction="lose" type="button">
+                            🔵 맨체스터 시티 승리
+                        </button>
+                    </div>
+                    <button class="prediction-submit" disabled="" id="predictionSubmitBtn" type="button">
+                        예측 제출
+                    </button>
+                    <p class="prediction-message" id="predictionMessage"></p>
+                </div>
+            </section>
+        </section>
+    </main>
 
-<!-- [NEW] 신뢰도를 더해주는 완성도 높은 푸터 -->
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-info">
-            <h4>4ARSENAL</h4>
-            <p>
-                이 페이지는 아스날 FC를 사랑하는 팬 및 축구에 관심이 있는 대중들을 위해 만들어진 비영리 목적의 팬 베이스 플랫폼 아카이브입니다.
-            </p>
-            <div class="footer-sns-icons">
-                <a href="#" class="sns-icon" aria-label="Facebook">🔵</a>
-                <a href="#" class="sns-icon" aria-label="Instagram">📸</a>
-                <a href="#" class="sns-icon" aria-label="Youtube">📺</a>
+    <!-- [NEW] 신뢰도를 더해주는 완성도 높은 푸터 -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h4>4ARSENAL</h4>
+                <p>
+                    이 페이지는 아스날 FC를 사랑하는 팬 및 축구에 관심이 있는 대중들을 위해 만들어진 비영리 목적의 팬 베이스 플랫폼 아카이브입니다.
+                </p>
+                <div class="footer-sns-icons">
+                    <a href="#" class="sns-icon" aria-label="Facebook">🔵</a>
+                    <a href="#" class="sns-icon" aria-label="Instagram">📸</a>
+                    <a href="#" class="sns-icon" aria-label="Youtube">📺</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h5>QUICK LINKS</h5>
+                <ul>
+                    <li><a href="4arsenal_home.html">Home</a></li>
+                    <li><a href="club.html">Club & Squad</a></li>
+                    <li><a href="history.html">History & Legends</a></li>
+                    <li><a href="gunner.html">Gunner Zone</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h5>RESOURCES</h5>
+                <ul>
+                    <li><a href="https://www.arsenal.com/" target="_blank">Arsenal Official</a></li>
+                    <li><a href="https://www.premierleague.com/" target="_blank">Premier League</a></li>
+                    <li><a href="match.html">Match Schedules</a></li>
+                </ul>
             </div>
         </div>
-        <div class="footer-links">
-            <h5>QUICK LINKS</h5>
-            <ul>
-                <li><a href="4arsenal_home.html">Home</a></li>
-                <li><a href="club.html">Club & Squad</a></li>
-                <li><a href="history.html">History & Legends</a></li>
-                <li><a href="gunner.html">Gunner Zone</a></li>
-            </ul>
+        <div class="footer-bottom">
+            <p>&copy; 2026 4ARSENAL. For Gunners, Built for All Football Fans. North London Forever.</p>
         </div>
-        <div class="footer-links">
-            <h5>RESOURCES</h5>
-            <ul>
-                <li><a href="https://www.arsenal.com/" target="_blank">Arsenal Official</a></li>
-                <li><a href="https://www.premierleague.com/" target="_blank">Premier League</a></li>
-                <li><a href="match.html">Match Schedules</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2026 4ARSENAL. For Gunners, Built for All Football Fans. North London Forever.</p>
-    </div>
-</footer>
+    </footer>
 
-<!-- Hidden Easter Egg Button -->
-<button
-    type="button"
-    id="goatEasterEggBtn"
-    class="goat-easter-egg"
-    aria-label="Hidden Easter Egg"
-></button>
-<!-- Modern Level up / Badge Unlock Modal Popup -->
-<div class="modal-overlay" id="eventModal">
-<div class="modal-content">
-<div class="modal-badge-glow" id="modalEmoji">🎉</div>
-<h3 class="modal-title" id="modalTitle">LEVEL UP!</h3>
-<p class="modal-desc" id="modalDesc">축하합니다! 새로운 등급에 도달했습니다.</p>
-<button class="close-modal-btn" id="modalCloseBtn">확인</button>
-</div>
-</div>
-<!-- JavaScript -->
-<script>
+    <!-- Hidden Easter Egg Button -->
+    <button type="button" id="goatEasterEggBtn" class="goat-easter-egg" aria-label="Hidden Easter Egg"></button>
+    <!-- Modern Level up / Badge Unlock Modal Popup -->
+    <div class="modal-overlay" id="eventModal">
+        <div class="modal-content">
+            <div class="modal-badge-glow" id="modalEmoji">🎉</div>
+            <h3 class="modal-title" id="modalTitle">LEVEL UP!</h3>
+            <p class="modal-desc" id="modalDesc">축하합니다! 새로운 등급에 도달했습니다.</p>
+            <button class="close-modal-btn" id="modalCloseBtn">확인</button>
+        </div>
+    </div>
+    <!-- JavaScript -->
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
+
             // 1. Navigation 스크롤 효과 & 모바일 메뉴 토글 (4arsenal_home.html과 정확히 호환)
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
@@ -1574,7 +1632,7 @@
             let currentLevel = 1;
             let currentQuestionIdx = 0;
             let consecutiveCorrectAnswers = 0;
-            
+
             let selectedPrediction = null;
             let predictionCompleted = false;
 
@@ -1588,87 +1646,87 @@
 
             // Quiz Database
             const quizQuestions = [
-            {
-                q: "아스날의 현재 홈구장은 어디일까요?",
-                options: [
-                    "Emirates Stadium",
-                    "Highbury",
-                    "Wembley Stadium",
-                    "Stamford Bridge"
-                ],
-                correct: 0
-            },
-            {
-                q: "아스날이 역사적인 무패 우승을 달성한 시즌은?",
-                options: [
-                    "2001/02",
-                    "2002/03",
-                    "2003/04",
-                    "2004/05"
-                ],
-                correct: 2
-            },
-            {
-                q: "아스날 구단 역사상 통산 최다 득점자는?",
-                options: [
-                    "Ian Wright",
-                    "Thierry Henry",
-                    "Dennis Bergkamp",
-                    "Robin van Persie"
-                ],
-                correct: 1
-            },
-            {
-                q: "아스날의 별명은 무엇일까요?",
-                options: [
-                    "The Blues",
-                    "The Reds",
-                    "The Gunners",
-                    "The Citizens"
-                ],
-                correct: 2
-            },
-            {
-                q: "아스날의 전통적인 홈 유니폼 색상 조합은?",
-                options: [
-                    "파랑과 흰색",
-                    "빨강과 흰색",
-                    "검정과 노랑",
-                    "초록과 흰색"
-                ],
-                correct: 1
-            },
-            {
-                q: "아스날을 무패 우승으로 이끈 감독은?",
-                options: [
-                    "Mikel Arteta",
-                    "Unai Emery",
-                    "Arsène Wenger",
-                    "George Graham"
-                ],
-                correct: 2
-            },
-            {
-                q: "아스날의 연고지는 어디일까요?",
-                options: [
-                    "맨체스터",
-                    "리버풀",
-                    "북런던",
-                    "버밍엄"
-                ],
-                correct: 2
-            },
-            {
-                q: "아스날의 대표적인 라이벌 구단은?",
-                options: [
-                    "Tottenham Hotspur",
-                    "Everton",
-                    "Leicester City",
-                    "West Ham United"
-                ],
-                correct: 0
-            }
-        ];
+                {
+                    q: "아스날의 현재 홈구장은 어디일까요?",
+                    options: [
+                        "Emirates Stadium",
+                        "Highbury",
+                        "Wembley Stadium",
+                        "Stamford Bridge"
+                    ],
+                    correct: 0
+                },
+                {
+                    q: "아스날이 역사적인 무패 우승을 달성한 시즌은?",
+                    options: [
+                        "2001/02",
+                        "2002/03",
+                        "2003/04",
+                        "2004/05"
+                    ],
+                    correct: 2
+                },
+                {
+                    q: "아스날 구단 역사상 통산 최다 득점자는?",
+                    options: [
+                        "Ian Wright",
+                        "Thierry Henry",
+                        "Dennis Bergkamp",
+                        "Robin van Persie"
+                    ],
+                    correct: 1
+                },
+                {
+                    q: "아스날의 별명은 무엇일까요?",
+                    options: [
+                        "The Blues",
+                        "The Reds",
+                        "The Gunners",
+                        "The Citizens"
+                    ],
+                    correct: 2
+                },
+                {
+                    q: "아스날의 전통적인 홈 유니폼 색상 조합은?",
+                    options: [
+                        "파랑과 흰색",
+                        "빨강과 흰색",
+                        "검정과 노랑",
+                        "초록과 흰색"
+                    ],
+                    correct: 1
+                },
+                {
+                    q: "아스날을 무패 우승으로 이끈 감독은?",
+                    options: [
+                        "Mikel Arteta",
+                        "Unai Emery",
+                        "Arsène Wenger",
+                        "George Graham"
+                    ],
+                    correct: 2
+                },
+                {
+                    q: "아스날의 연고지는 어디일까요?",
+                    options: [
+                        "맨체스터",
+                        "리버풀",
+                        "북런던",
+                        "버밍엄"
+                    ],
+                    correct: 2
+                },
+                {
+                    q: "아스날의 대표적인 라이벌 구단은?",
+                    options: [
+                        "Tottenham Hotspur",
+                        "Everton",
+                        "Leicester City",
+                        "West Ham United"
+                    ],
+                    correct: 0
+                }
+            ];
 
             // DOM Elements
             const pointsText = document.getElementById('pointsText');
@@ -1677,7 +1735,7 @@
             const progressPctText = document.getElementById('progressPctText');
             const levelLabel = document.getElementById('levelLabel');
             const feedbackMessage = document.getElementById('feedbackMessage');
-            
+
             // Tasks
             const taskChantBtn = document.getElementById('taskChantBtn');
             const taskCheerBtn = document.getElementById('taskCheerBtn');
@@ -1701,7 +1759,7 @@
             // ==========================================================================
             // Core Functions
             // ==========================================================================
-            
+
             // Update points and progress bar UI
             function updatePointsUI() {
                 // Lv.3 최고 등급
@@ -1725,7 +1783,7 @@
                 }
 
                 pointsText.innerText = userPoints;
-                
+
                 let limit = pointRequirements[currentLevel] || 300;
                 nextLevelPts.innerText = limit;
 
@@ -1740,7 +1798,7 @@
                     userPoints = userPoints - limit; // Carry over excess points
                     levelLabel.innerText = "Lv.2 Professional Gunner";
                     levelLabel.style.backgroundColor = "var(--arsenal-gold)";
-                    
+
                     // Trigger level up modal
                     showModal("🏆 LEVEL UP!", "축하합니다! 전설적인 레벨 2 Professional Gunner 등급에 도달하셨습니다!", "🏆");
                     updatePointsUI();
@@ -1756,7 +1814,7 @@
                 if (userPoints >= 50) {
                     badgeFirst.classList.add('unlocked');
                 }
-                
+
                 if (cheerCompleted) {
                     badgeCheer.classList.add('unlocked');
                 }
@@ -1811,7 +1869,7 @@
             // Tasks Interaction
             // ==========================================================================
             taskChantBtn.addEventListener('click', () => {
-                if(!taskChantBtn.classList.contains('completed')) {
+                if (!taskChantBtn.classList.contains('completed')) {
                     taskChantBtn.classList.add('completed');
                     taskChantBtn.innerText = "완료";
                     userPoints += 5;
@@ -2146,7 +2204,7 @@
             const quizProgress = document.getElementById('quizProgress');
 
             function loadQuestion() {
-                if(currentQuestionIdx >= quizQuestions.length) {
+                if (currentQuestionIdx >= quizQuestions.length) {
                     questionText.innerText = "모든 퀴즈가 끝났습니다! 새로운 퀴즈 업데이트를 기다려주세요.";
                     optionsBox.innerHTML = "";
                     quizProgress.innerText = "QUIZ COMPLETED";
@@ -2158,7 +2216,7 @@
                 const currentQuiz = quizQuestions[currentQuestionIdx];
                 quizProgress.innerText = `Question ${currentQuestionIdx + 1} of ${quizQuestions.length}`;
                 questionText.innerText = currentQuiz.q;
-                
+
                 optionsBox.innerHTML = "";
                 feedbackMessage.innerText = "";
 
@@ -2174,7 +2232,7 @@
             function selectOption(selectedIdx) {
                 const currentQuiz = quizQuestions[currentQuestionIdx];
                 const buttons = optionsBox.querySelectorAll('.option-btn');
-                
+
                 // Disable further clicking
                 buttons.forEach(btn => btn.style.pointerEvents = 'none');
 
@@ -2215,4 +2273,5 @@
         });
     </script>
 </body>
+
 </html>
